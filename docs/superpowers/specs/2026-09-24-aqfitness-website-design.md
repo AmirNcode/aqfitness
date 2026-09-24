@@ -1,7 +1,7 @@
 # Aquam Fitness website: design spec
 
 - **Date:** 2026-09-24
-- **Status:** Draft, awaiting review
+- **Status:** Approved. First draft built and deployed as a demo (2026-09-24)
 - **Client:** Alejandro Rivas, Aquam Fitness (aqfitness.ca, Toronto)
 - **Builder:** Amir
 
@@ -111,7 +111,7 @@ The blocks listed for each page come from the named sources. Items marked **[PH]
 
 ### 5.1 Home `/`
 1. **Hero (professional):** "Competitive edge starts with your people." Subline: a 12-week team fitness + nutrition program that builds healthier habits, sharper focus and stronger teams. CTAs: **Book a discovery call** and "How it works ↓". A small link: "Looking for 1:1 coaching? →"
-2. **Marquee ticker:** EAT. TRAIN. LIVE. (the old brand tagline). CSS-only, and it pauses when the user has reduced motion turned on.
+2. **12-week strip:** the program's 12 weeks as one graphic (Foundation outlined, the Habit Shift in orange), full width under the hero copy. *(Build note: this replaced the planned marquee. "Eat. Train. Live." now appears as large type in the footer, which keeps motion to a minimum.)*
 3. **The problem:** 3 verified stats with source links.
 4. **Three pillars:** Movement · Nutrition · Recovery (from the deck).
 5. **How the 12 weeks work:** a condensed timeline (Foundation 1–4, then the Habit Shift 5–12), linking to `/teams/`.
@@ -253,7 +253,7 @@ All components are `.astro`. JavaScript appears only where marked JS.
 | `Header` / `MobileMenu` (JS: toggle) | all | Sticky, compact on scroll (CSS only) |
 | `Footer` + `NewsletterForm` | all | Netlify form `newsletter` |
 | `Hero` (variants: performance, coaching, simple) | pages | Optional B&W photo with a gradient scrim |
-| `Marquee` | home | CSS animation, pauses with reduced motion or on hover |
+| `WeekStrip` (compact / full) | home, teams | The signature 12-week graphic |
 | `StatBlock` / `StatRow` | home, teams | Value, label, source link (required) |
 | `PillarCards` | home, teams | 3 up, stacking on mobile |
 | `Timeline12Week` | home (compact), teams (full) | Ordered list, phases, markers |
