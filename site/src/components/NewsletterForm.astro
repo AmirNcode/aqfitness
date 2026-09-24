@@ -1,0 +1,35 @@
+---
+interface Props {
+  id?: string;
+}
+const { id = 'newsletter' } = Astro.props;
+---
+<form
+  class="newsletter"
+  name="newsletter"
+  method="POST"
+  action="/newsletter/thanks/"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  data-enhance="inline"
+  data-success="Thanks! Check your inbox for a welcome email."
+>
+  <input type="hidden" name="form-name" value="newsletter" />
+  <p class="honeypot" aria-hidden="true">
+    <label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+  </p>
+  <label for={`${id}-email`}>Get training and nutrition tips by email</label>
+  <div class="row">
+    <input id={`${id}-email`} type="email" name="email" required autocomplete="email" placeholder="you@example.com" />
+    <button class="btn btn-primary" type="submit">Subscribe</button>
+  </div>
+  <p class="status small" data-status role="status" aria-live="polite"></p>
+</form>
+
+<style>
+  .newsletter { display: grid; gap: 10px; max-width: 460px; }
+  label { font-weight: 600; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .row input { flex: 1 1 220px; }
+  .status { margin: 0; min-height: 1.4em; }
+</style>

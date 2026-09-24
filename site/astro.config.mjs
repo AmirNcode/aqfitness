@@ -9,7 +9,7 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     sitemap({
-      filter: (page) => !/\/(contact|free-guide)\/thanks\/$/.test(page),
+      filter: (page) => !/\/(contact|free-guide|newsletter)\/thanks\/$/.test(page),
     }),
   ],
   fonts: [

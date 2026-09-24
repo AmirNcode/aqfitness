@@ -1,0 +1,32 @@
+---
+// Visible marker for content Alejandro still has to supply. Launch builds (STRICT_CONTENT=true) fail on it.
+import { strictContent } from '../lib/env';
+
+interface Props {
+  label: string;
+}
+const { label } = Astro.props;
+if (strictContent()) {
+  throw new Error(`STRICT_CONTENT: placeholder left on ${Astro.url.pathname}: ${label}`);
+}
+---
+<span class="ph" title="Placeholder: replace before launch">Placeholder: {label}</span>
+
+<style>
+  .ph {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--accent-ink);
+    background: var(--white);
+    border: 1.5px dashed var(--accent-ink);
+    border-radius: 4px;
+    padding: 2px 8px;
+    vertical-align: middle;
+  }
+  :global(.dark) .ph { color: var(--accent); background: transparent; border-color: var(--accent); }
+</style>

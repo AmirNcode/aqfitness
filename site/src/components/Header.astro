@@ -1,0 +1,78 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo/aq-white.png';
+import { site } from '../config/site';
+
+const path = Astro.url.pathname;
+---
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="/">
+      <Image src={logo} alt="" width={54} height={38} loading="eager" />
+      <span>Aquam Fitness</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden>
+      <span class="menu-label">Menu</span>
+    </button>
+    <nav id="site-nav" aria-label="Main">
+      <ul>
+        {site.nav.map((item) => (
+          <li><a href={item.href} aria-current={path.startsWith(item.href) ? 'page' : undefined}>{item.label}</a></li>
+        ))}
+      </ul>
+      <a class="btn btn-primary" href="/book/">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector<HTMLElement>('.site-header');
+  const toggle = header?.querySelector<HTMLButtonElement>('.menu-toggle');
+  if (header && toggle) {
+    header.classList.add('has-js');
+    toggle.hidden = false;
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') !== 'true';
+      toggle.setAttribute('aria-expanded', String(open));
+      header.toggleAttribute('data-open', open);
+    });
+  }
+</script>
+
+<style>
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--black); color: var(--white);
+  }
+  .bar { display: flex; align-items: center; gap: 24px; min-height: 68px; }
+  .brand {
+    display: flex; align-items: center; gap: 12px; color: var(--white); text-decoration: none;
+    font-family: var(--font-display); font-weight: 800; font-size: 1.375rem; text-transform: uppercase;
+    letter-spacing: 0.01em; margin-right: auto;
+  }
+  .brand img { height: 34px; width: auto; }
+  nav { display: flex; align-items: center; gap: 28px; }
+  ul { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; }
+  ul a {
+    color: var(--white); text-decoration: none; font-weight: 500; font-size: 1rem;
+    padding-block: 6px; border-bottom: 2px solid transparent;
+  }
+  ul a:hover, ul a[aria-current='page'] { border-bottom-color: var(--accent); color: var(--white); }
+  nav .btn { font-size: 1rem; padding: 0.7em 1.1em; }
+  .menu-toggle {
+    font: inherit; font-weight: 600; color: var(--white); background: none;
+    border: 2px solid var(--white); padding: 6px 14px; cursor: pointer;
+  }
+
+  @media (max-width: 960px) {
+    .bar { flex-wrap: wrap; padding-block: 10px; }
+    nav { flex-basis: 100%; flex-direction: column; align-items: flex-start; gap: 16px; padding-block: 8px 16px; }
+    ul { flex-direction: column; gap: 4px; }
+    ul a { display: block; font-size: 1.25rem; padding-block: 8px; }
+    .has-js nav { display: none; }
+    .has-js[data-open] nav { display: flex; }
+  }
+  @media (min-width: 961px) {
+    .menu-toggle { display: none; }
+  }
+</style>
