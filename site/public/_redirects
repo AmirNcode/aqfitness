@@ -1,0 +1,16 @@
+# Old Shopify URLs -> new pages (spec §4.3). 301 = permanent.
+/pages/about-us                 /about/        301
+/pages/testimonials             /results/      301
+/pages/standard-pagenho6z       /coaching/     301
+/pages/contact                  /contact/      301
+/pages/supplemets               /              301
+/blogs/news                     /blog/         301
+/blogs/news/:slug               /blog/:slug/   301
+/collections/*                  /              301
+/products/*                     /              301
+/cart                           /              301
+/account/*                      /              301
+/policies/privacy-policy        /privacy/      301
+/policies/terms-of-service      /terms/        301
+/policies/contact-information   /contact/      301
+/policies/*                     /              301
