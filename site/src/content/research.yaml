@@ -1,31 +1,28 @@
-# Workplace wellness ROI studies cited in the pitch deck. Verify each before launch.
+# Workplace wellness ROI research, verified against primary sources (Task 10, 2026-09-24).
+# Removed from the deck's list: RAND/PepsiCo 2014 (its lifestyle-management component, the part
+# comparable to this program, returned about $0.50 per $1), and Cigna & Avalere 2022 and Wellhub
+# 2024 (figures couldn't be confirmed).
 - id: baicker-2010
   source: Baicker, Cutler & Song, Health Affairs (2010)
-  scope: Meta-analysis of workplace wellness programs
-  finding: About $3.27 lower medical costs and $2.73 lower absenteeism costs per $1 spent.
-  url: null
-  verified: false
-- id: hbr-jnj-2010
-  source: Harvard Business Review (2010)
-  scope: Johnson & Johnson wellness program case study
-  finding: Reported returns of roughly $2.71 per $1 spent over the program period.
-  url: null
-  verified: false
-- id: rand-2014
-  source: RAND / Health Affairs (2014)
-  scope: PepsiCo wellness program, 7 years
-  finding: Overall return of about $1.50 per $1, driven mainly by disease management.
-  url: null
-  verified: false
-- id: cigna-avalere-2022
-  source: Cigna & Avalere (2022)
-  scope: Employer health investment study
-  finding: Employer health investment linked to lower costs and higher productivity.
-  url: null
-  verified: false
-- id: wellhub-2024
-  source: Wellhub, Return on Wellbeing (2024)
-  scope: Global survey of HR leaders
-  finding: Most employers offering wellness programs report a positive return.
-  url: null
-  verified: false
+  scope: Meta-analysis of workplace wellness program studies
+  finding: Medical costs fell about $3.27 and absenteeism costs about $2.73 for every $1 spent.
+  url: https://www.healthaffairs.org/doi/10.1377/hlthaff.2009.0626
+  verified: true
+- id: chapman-2012
+  source: Chapman, American Journal of Health Promotion (2012)
+  scope: Meta-evaluation of 62 worksite health promotion studies
+  finding: About 25% lower sick leave, health plan costs and workers' compensation and disability costs.
+  url: https://doi.org/10.4278/ajhp.26.4.tahp
+  verified: true
+- id: hbr-2010
+  source: Berry, Mirabito & Baun, Harvard Business Review (2010)
+  scope: Case studies of comprehensive programs at 10 organizations
+  finding: Well-designed, comprehensive programs returned as much as $6 in health care savings for every $1 invested.
+  url: https://hbr.org/2010/12/whats-the-hard-return-on-employee-wellness-programs
+  verified: true
+- id: losina-2017
+  source: Losina et al., PLOS One (2017)
+  scope: 292 employees in a workplace wellness program
+  finding: Employees below the recommended 150 minutes of weekly activity had a 2.4× higher rate of illness-related absence.
+  url: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0176872
+  verified: true
