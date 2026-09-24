@@ -28,10 +28,10 @@ const screens = [
 </div>
 
 <style>
+  .scroller { overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; }
   .screens {
-    list-style: none; margin: 0; padding: 0 0 12px;
+    list-style: none; margin: 0; padding: 0;
     display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 280px); gap: 20px;
-    overflow-x: auto; scroll-snap-type: x mandatory;
   }
   li { scroll-snap-align: start; }
   figure { margin: 0; }

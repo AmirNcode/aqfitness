@@ -36,7 +36,7 @@ const checkIns = new Set([4, 8, 12]);
     font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
     font-size: clamp(0.95rem, 0.8rem + 0.6vw, 1.25rem); letter-spacing: 0.02em; color: var(--ink);
   }
-  .shift { color: var(--fill); }
+  .shift { color: var(--accent-ink); }  /* small text: orange only passes contrast on dark */
   .on-dark .shift { color: var(--accent); }
   .weeks {
     list-style: none; margin: 0; padding: 0;

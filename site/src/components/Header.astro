@@ -8,7 +8,7 @@ const path = Astro.url.pathname;
 <header class="site-header">
   <div class="wrap bar">
     <a class="brand" href="/">
-      <Image src={logo} alt="" width={54} height={38} loading="eager" />
+      <Image src={logo} alt="" width={54} height={38} densities={[1, 2, 3]} loading="eager" />
       <span>Aquam Fitness</span>
     </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden>

@@ -6,7 +6,7 @@
   --paper: #f4f3ef;        /* Aquam Performance surface */
   --sand: #efe9e0;         /* 1:1 coaching surface */
   --navy: #1e2b3a;         /* report / data surfaces */
-  --slate: #5e6f85;        /* secondary text on light (5.1:1 on white) */
+  --slate: #56667b;        /* secondary text on light (>= 4.86:1 on white, paper and sand) */
   --text: #4a4a4f;         /* body text on paper/sand (>= 7.3:1) */
   --muted-dark: #9a9aa0;   /* secondary text on black (6.9:1) */
   --accent: #e8633a;       /* deck orange: fills, large display, black text on it (6.3:1) */

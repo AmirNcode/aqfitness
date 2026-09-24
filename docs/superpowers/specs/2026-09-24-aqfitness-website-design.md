@@ -222,7 +222,7 @@ The goal is STNDRD's confidence (bold condensed headlines, black & white photogr
 | `--paper` | `#F4F3EF` | Performance light background |
 | `--sand` | `#EFE9E0` | Coaching light background |
 | `--navy` | `#1E2B3A` | Report / data surfaces (deck) |
-| `--slate` | `#5E6F85` | Secondary text and data labels on light backgrounds (5.1:1 on white) |
+| `--slate` | `#56667B` | Secondary text and data labels on light backgrounds (≥ 4.86:1 on white, paper and sand) |
 | `--body` | `#4A4A4F` | Body text on paper and sand (≥ 7.3:1) |
 | `--muted-dark` | `#9A9AA0` | Secondary text on ink (6.9:1) |
 | `--accent` | `#E8633A` | Brand orange (deck). Buttons, big display accents, graphics |
