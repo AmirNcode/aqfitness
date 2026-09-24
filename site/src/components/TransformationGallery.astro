@@ -1,0 +1,38 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Item {
+  id: string;
+  image: ImageMetadata;
+}
+interface Props {
+  items: Item[];
+  layout?: 'row' | 'grid';
+  label?: string;
+}
+const { items, layout = 'grid', label = 'Client transformations' } = Astro.props;
+---
+<div class:list={['gallery', layout]} tabindex={layout === 'row' ? 0 : undefined} role="region" aria-label={label}>
+  <ul>
+    {items.map((it, i) => (
+      <li>
+        <Image
+          src={it.image}
+          alt={`Client transformation ${i + 1}: before and after`}
+          widths={[300, 600]}
+          sizes={layout === 'row' ? '(max-width: 700px) 70vw, 300px' : '(max-width: 700px) 50vw, (max-width: 1100px) 33vw, 300px'}
+        />
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  ul { list-style: none; margin: 0; padding: 0; }
+  li img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius); background: var(--white); }
+  .grid ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 16px; }
+  .row { overflow-x: auto; padding-bottom: 12px; }
+  .row ul { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 300px); gap: 16px; scroll-snap-type: x mandatory; }
+  .row li { scroll-snap-align: start; }
+</style>

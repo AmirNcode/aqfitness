@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string;
+  summary: string;
+  includes: string[];
+  best: string;
+}
+const { title, summary, includes, best } = Astro.props;
+---
+<article class="offer">
+  <h3>{title}</h3>
+  <p class="summary">{summary}</p>
+  <ul>{includes.map((i) => <li>{i}</li>)}</ul>
+  <p class="best"><strong>Best for:</strong> {best}</p>
+  <p class="price small">Pricing is shared on your free consult.</p>
+</article>
+
+<style>
+  .offer { background: var(--white); border-radius: var(--radius); padding: clamp(24px, 3vw, 36px); display: grid; gap: 12px; align-content: start; }
+  h3 { font-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem); font-weight: 800; margin: 0; }
+  .summary { margin: 0; font-size: 1.125rem; }
+  ul { margin: 0; padding-left: 1.2em; color: var(--text); }
+  li + li { margin-top: 6px; }
+  li::marker { color: var(--accent-ink); }
+  .best { margin: 0; }
+  .price { margin: 0; color: var(--slate); }
+</style>

@@ -1,0 +1,39 @@
+---
+import Placeholder from './Placeholder.astro';
+import { site, type BookingKind } from '../config/site';
+
+interface Props {
+  kind: BookingKind;
+  title: string;
+  who: string;
+  duration: string;
+  points: string[];
+}
+const { kind, title, who, duration, points } = Astro.props;
+const url = site.calendly[kind];
+---
+<article class="booking" id={kind}>
+  <p class="who">{who}</p>
+  <h2>{title}</h2>
+  <p class="duration">{duration} on Zoom</p>
+  <ul>{points.map((p) => <li>{p}</li>)}</ul>
+  {url ? (
+    <a class="btn btn-primary btn-lg" href={url} rel="noopener">Choose a time</a>
+  ) : (
+    <div class="pending">
+      <Placeholder label="Calendly link" />
+      <p class="small">Online booking opens soon. In the meantime, <a href="/contact/">send us a message</a> and we'll find a time.</p>
+    </div>
+  )}
+</article>
+
+<style>
+  .booking { background: var(--white); border: 2px solid var(--black); border-radius: var(--radius); padding: clamp(24px, 3vw, 36px); display: grid; gap: 12px; align-content: start; scroll-margin-top: 96px; }
+  .who { margin: 0; font-weight: 600; color: var(--accent-ink); }
+  h2 { font-size: var(--fs-h2); margin: 0; }
+  .duration { margin: 0; font-weight: 600; }
+  ul { margin: 0 0 8px; color: var(--text); }
+  li + li { margin-top: 6px; }
+  .pending { display: grid; gap: 8px; }
+  .pending p { margin: 0; }
+</style>

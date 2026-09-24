@@ -1,0 +1,40 @@
+---
+import Placeholder from './Placeholder.astro';
+
+interface Row {
+  id: string;
+  source: string;
+  scope: string;
+  finding: string;
+  url: string | null;
+  verified: boolean;
+}
+interface Props {
+  rows: Row[];
+}
+const { rows } = Astro.props;
+---
+<div class="scroll" tabindex="0" role="region" aria-label="Workplace wellness research">
+  <table>
+    <thead>
+      <tr><th scope="col">Study</th><th scope="col">What was studied</th><th scope="col">What it found</th></tr>
+    </thead>
+    <tbody>
+      {rows.map((r) => (
+        <tr>
+          <th scope="row">{r.verified && r.url ? <a href={r.url} rel="noopener">{r.source}</a> : r.source}</th>
+          <td>{r.scope}</td>
+          <td>{r.finding} {!r.verified && <Placeholder label="verify" />}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .scroll { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 1rem; }
+  th, td { text-align: left; vertical-align: top; padding: 14px 16px 14px 0; border-bottom: 1px solid var(--line); }
+  thead th { font-size: var(--fs-small); color: var(--slate); font-weight: 600; border-bottom: 2px solid var(--black); }
+  tbody th { font-weight: 600; width: 32%; }
+</style>

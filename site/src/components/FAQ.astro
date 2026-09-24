@@ -1,0 +1,47 @@
+---
+import Placeholder from './Placeholder.astro';
+
+export interface FaqItem {
+  id: string;
+  question: string;
+  answer: string;
+  confirm?: boolean;
+}
+interface Props {
+  items: FaqItem[];
+  heading?: string;
+}
+const { items, heading = 'Questions, answered' } = Astro.props;
+---
+<div class="faq" id="faq">
+  <h2>{heading}</h2>
+  <div class="list">
+    {items.map((item) => (
+      <details id={`faq-${item.id}`}>
+        <summary>{item.question}</summary>
+        <div class="answer">
+          <p>{item.answer}</p>
+          {item.confirm && <Placeholder label="Alejandro to confirm this answer" />}
+        </div>
+      </details>
+    ))}
+  </div>
+</div>
+
+<style>
+  .faq { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 32px 64px; align-items: start; }
+  .list { border-top: 2px solid currentColor; }
+  details { border-bottom: 1px solid var(--line); }
+  summary {
+    list-style: none; cursor: pointer; padding: 20px 40px 20px 0; position: relative;
+    font-weight: 600; font-size: 1.125rem; line-height: 1.4;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: '+'; position: absolute; right: 4px; top: 50%; translate: 0 -50%;
+    font-family: var(--font-display); font-weight: 800; font-size: 1.75rem; color: var(--accent-ink);
+  }
+  details[open] summary::after { content: '–'; }
+  .answer { padding: 0 0 20px; color: var(--text); }
+  @media (max-width: 860px) { .faq { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,32 @@
+---
+// Movement, Nutrition, Recovery: the program's three pillars (pitch deck).
+const pillars = [
+  { name: 'Movement', text: 'More steps, regular training and fewer hours of unbroken sitting. Everyday movement accounts for a big share of the energy you burn each day.' },
+  { name: 'Nutrition', text: 'A better relationship with food: simple habits and meals that fuel the workday, with no restrictive diets or banned foods.' },
+  { name: 'Recovery', text: 'Sleep, stress and recovery strategies matched to each person, because focus and energy start with how well you recover.' },
+];
+---
+<ul class="pillars">
+  {pillars.map((p) => (
+    <li>
+      <h3>{p.name}</h3>
+      <p>{p.text}</p>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .pillars {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border-top: 2px solid currentColor;
+  }
+  li { padding: 28px 28px 8px 0; }
+  li + li { padding-left: 28px; border-left: 1px solid var(--line); }
+  h3 { font-size: clamp(2rem, 1.4rem + 2vw, 3rem); font-weight: 800; margin-bottom: 12px; }
+  p { color: var(--text); }
+  @media (max-width: 780px) {
+    .pillars { grid-template-columns: 1fr; }
+    li + li { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  }
+</style>

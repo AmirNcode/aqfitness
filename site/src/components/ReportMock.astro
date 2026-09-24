@@ -1,0 +1,64 @@
+---
+// A sample of the report companies receive every 4 weeks. Real HTML so crawlers and screen readers can read it.
+const trend = [6.2, 6.4, 6.3, 6.9, 7.1, 7.0, 7.5, 7.8]; // weekly team energy/focus score (illustrative)
+const w = 240, h = 64, pad = 6;
+const min = 5.5, max = 8.5;
+const pts = trend.map((v, i) => [pad + (i * (w - 2 * pad)) / (trend.length - 1), h - pad - ((v - min) / (max - min)) * (h - 2 * pad)]);
+const line = pts.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
+const [lx, ly] = pts[pts.length - 1];
+const metrics = [
+  { label: 'Participation', value: '92%', note: 'of the team active this week' },
+  { label: 'Workouts completed', value: '186', note: 'of 200 planned' },
+  { label: 'Average daily steps', value: '8,420', note: 'up 1,900 since week 1' },
+  { label: 'Habits completed', value: '81%', note: 'of daily habit check-offs' },
+];
+---
+<figure class="report">
+  <div class="head">
+    <p class="title">Team report: week 8</p>
+    <p class="sample">Sample with illustrative numbers</p>
+  </div>
+  <dl class="metrics">
+    {metrics.map((m) => (
+      <div>
+        <dt>{m.label}</dt>
+        <dd><span class="v">{m.value}</span> <span class="n">{m.note}</span></dd>
+      </div>
+    ))}
+  </dl>
+  <div class="trend">
+    <div>
+      <p class="t-label">Self-reported energy and focus</p>
+      <p class="t-value">7.8<span>/10</span> <span class="n">up from 6.2 in week 1</span></p>
+    </div>
+    <svg viewBox={`0 0 ${w} ${h}`} width={w} height={h} role="img" aria-label="Weekly energy and focus score rising from 6.2 to 7.8 over 8 weeks">
+      <polyline points={line} fill="none" stroke="#E8633A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+      <circle cx={lx} cy={ly} r="5" fill="#E8633A" />
+    </svg>
+  </div>
+  <figcaption class="small">Your company sees team totals like these. Individual details, such as body composition, stay private between each employee and their coach.</figcaption>
+</figure>
+
+<style>
+  .report { margin: 0; background: var(--navy); color: var(--white); padding: clamp(20px, 3vw, 32px); }
+  .head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline; margin-bottom: 20px; }
+  .title { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; font-size: 1.5rem; margin: 0; }
+  .sample { margin: 0; font-size: var(--fs-small); color: #c9d1dc; }
+  .metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgb(255 255 255 / 0.15); margin: 0 0 1px; }
+  .metrics div { background: var(--navy); padding: 16px 16px 16px 0; }
+  .metrics div:nth-child(even) { padding-left: 16px; }
+  dt { font-size: var(--fs-small); color: #c9d1dc; }
+  dd { margin: 4px 0 0; }
+  .v { font-family: var(--font-display); font-weight: 800; font-size: 2.25rem; line-height: 1; }
+  .n { font-size: var(--fs-small); color: #c9d1dc; }
+  .trend {
+    display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px;
+    border-top: 1px solid rgb(255 255 255 / 0.15); padding-top: 16px; margin-top: 8px;
+  }
+  .t-label { margin: 0; font-size: var(--fs-small); color: #c9d1dc; }
+  .t-value { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: 2.25rem; line-height: 1.1; }
+  .t-value span:first-child { font-size: 1.25rem; }
+  .t-value .n { font-family: var(--font-body); font-weight: 400; }
+  svg { max-width: 100%; height: auto; }
+  figcaption { margin-top: 20px; color: #c9d1dc; }
+</style>

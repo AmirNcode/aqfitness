@@ -1,0 +1,25 @@
+---
+// Pilot case study. Every figure is a placeholder until Alejandro shares his pilot data.
+import Placeholder from './Placeholder.astro';
+---
+<article class="case">
+  <p class="kicker">Pilot program</p>
+  <h3>A team of <Placeholder label="team size" /> at a <Placeholder label="industry" /> company, 12 weeks</h3>
+  <dl>
+    <div><dt>Participation</dt><dd><Placeholder label="pilot figure" /></dd></div>
+    <div><dt>Average daily steps</dt><dd><Placeholder label="pilot figure" /></dd></div>
+    <div><dt>Energy and focus</dt><dd><Placeholder label="pilot figure" /></dd></div>
+  </dl>
+  <blockquote><Placeholder label="quote from the team lead or HR" /></blockquote>
+</article>
+
+<style>
+  .case { border: 2px solid var(--black); padding: clamp(20px, 3vw, 32px); background: var(--white); }
+  .kicker { font-weight: 600; color: var(--accent-ink); margin-bottom: 8px; }
+  h3 { font-size: var(--fs-h3); }
+  dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0; }
+  dt { font-size: var(--fs-small); color: var(--slate); }
+  dd { margin: 4px 0 0; }
+  blockquote { margin: 0; padding-left: 16px; border-left: 3px solid var(--accent); }
+  @media (max-width: 640px) { dl { grid-template-columns: 1fr; } }
+</style>

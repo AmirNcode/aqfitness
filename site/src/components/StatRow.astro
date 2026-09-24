@@ -1,0 +1,51 @@
+---
+import Placeholder from './Placeholder.astro';
+
+export interface Stat {
+  id: string;
+  value: string;
+  label: string;
+  sourceTitle: string | null;
+  sourceUrl: string | null;
+  year: number | null;
+  verified: boolean;
+}
+interface Props {
+  stats: Stat[];
+}
+const { stats } = Astro.props;
+---
+<dl class="stats">
+  {stats.map((s) => (
+    <div class="stat">
+      <dt class="value">{s.value}</dt>
+      <dd>
+        <p class="label">{s.label}</p>
+        <p class="source small">
+          {s.verified && s.sourceUrl
+            ? <>Source: <a href={s.sourceUrl} rel="noopener">{s.sourceTitle}{s.year ? ` (${s.year})` : ''}</a></>
+            : <Placeholder label="source not verified yet" />}
+        </p>
+      </dd>
+    </div>
+  ))}
+</dl>
+
+<style>
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0; margin: 0; }
+  .stat { padding: 28px 28px 28px 0; border-top: 2px solid currentColor; }
+  .stat + .stat { padding-left: 28px; border-left: 1px solid var(--line); }
+  :global(.dark) .stat + .stat { border-left-color: rgb(255 255 255 / 0.2); }
+  .value {
+    font-family: var(--font-display); font-weight: 800; line-height: 0.9;
+    font-size: clamp(3rem, 2rem + 4vw, 5rem); color: var(--accent-ink); margin-bottom: 12px;
+  }
+  :global(.dark) .value { color: var(--accent); }
+  dd { margin: 0; }
+  .label { font-size: 1.0625rem; line-height: 1.45; margin-bottom: 10px; }
+  .source { margin: 0; color: var(--slate); }
+  :global(.dark) .source { color: var(--muted-dark); }
+  @media (max-width: 780px) {
+    .stat + .stat { padding-left: 0; border-left: 0; }
+  }
+</style>
