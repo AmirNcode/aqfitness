@@ -1,32 +1,41 @@
 # FAQ for HR, founders and team leads (Aquam Performance). Answers come from the pitch deck
 # and Alejandro's questionnaire. `confirm: true` = Alejandro must confirm before launch.
 - id: hr-effort
+  order: 1
   question: What does HR have to do?
   answer: Very little. We handle the day-to-day coaching, tracking and communication, so your people benefit without HR or leadership taking on extra work. You'll receive a progress report every 4 weeks.
 - id: time
+  order: 2
   question: How much time does it take employees?
   answer: Weekly check-ins take under 5 minutes, and daily tasks fit around the workday. There's a 20-minute kickoff call the Friday before the program starts, and an optional 30-minute team Q&A every 4 weeks.
   confirm: true
 - id: privacy
+  order: 3
   question: Is individual health data shared with the company?
   answer: No. Your company sees team-level results, like participation, activity and self-reported energy, focus and productivity. Personal details such as body composition stay private between each employee and their coach.
   confirm: true
 - id: remote
+  order: 4
   question: Do you work with remote or hybrid teams?
   answer: Yes. The program is mostly virtual, delivered through the Trainerize app, a team group chat and video calls. For teams in the Greater Toronto Area, we can also run sessions at your office.
 - id: levels
+  order: 5
   question: What if our team has very different fitness levels?
   answer: That's expected. Everyone gets their own plan and 1:1 coaching, and the first four weeks (the Foundation phase) are deliberately simple, so nobody gets left behind before the team competition starts.
 - id: size
+  order: 6
   question: How many people can join?
   answer: Teams start at 8 participants. If more people want in, we split them into two or more teams, which makes the competition even better.
 - id: cost
+  order: 7
   question: What does it cost?
   answer: It depends on team size and program length. Book a discovery call and we'll put together a proposal for your team.
 - id: credentials
+  order: 8
   question: Are you insured and certified?
   answer: Yes. Aquam Fitness carries liability insurance, and Alejandro is a Precision Nutrition certified nutrition coach, a certified personal trainer (CanFitPro) and First Aid/CPR certified.
 - id: after
+  order: 9
   question: What happens after the 12 weeks?
   answer: We review the results with you and recommend next steps. Many teams keep going to lock in the habits they've built.
   confirm: true

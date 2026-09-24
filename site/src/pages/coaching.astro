@@ -15,7 +15,7 @@ import { serviceLd, faqLd } from '../lib/schema';
 import friendly from '../assets/photos/alejandro-friendly.jpg';
 import portrait from '../assets/photos/alejandro-portrait.jpg';
 
-const faq = (await getCollection('faqCoaching')).map((e) => e.data);
+const faq = (await getCollection('faqCoaching')).map((e) => e.data).sort((a, b) => a.order - b.order);
 const results = (await getCollection('testimonials')).map((e) => e.data);
 const quotes = results.filter((r) => r.quote).slice(0, 3);
 const gallery = results.filter((r) => !r.quote).slice(8, 16);
@@ -170,7 +170,8 @@ const description =
 </BaseLayout>
 
 <style>
-  .hero-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius); }
+  /* Wide source photo: Alejandro sits in the left ~45%, so anchor the crop there. */
+  .hero-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 6% 50%; border-radius: var(--radius); }
   .intro { max-width: 760px; margin-bottom: 40px; }
   .who { display: grid; grid-template-columns: 3fr 2fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
   .quote { margin: 0; background: var(--peach); border-radius: var(--radius); padding: clamp(24px, 3vw, 40px); }
@@ -187,7 +188,9 @@ const description =
   .beliefs p { margin: 0; color: var(--text); }
   .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
   .quotes :global(.t) { background: var(--sand); }
-  .more { margin-top: 40px; display: grid; gap: 20px; justify-items: start; }
+  .more { margin-top: 40px; display: grid; gap: 20px; }
+  .more .btn { justify-self: start; }
+  .more > :global(.gallery) { min-width: 0; }
   @media (max-width: 960px) {
     .who, .offers, .philosophy { grid-template-columns: 1fr; }
     .quotes { grid-template-columns: 1fr; }

@@ -34,6 +34,7 @@ const faqItem = z.object({
   question: z.string(),
   answer: z.string(),
   confirm: z.boolean().default(false),
+  order: z.number(),
 });
 
 const faqTeams = defineCollection({ loader: file('src/content/faq-teams.yaml'), schema: faqItem });

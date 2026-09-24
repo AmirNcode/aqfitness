@@ -20,7 +20,7 @@ import gym from '../assets/photos/alejandro-gym.jpg';
 
 const stats = (await getCollection('stats')).map((e) => e.data).sort((a, b) => a.order - b.order);
 const research = (await getCollection('research')).map((e) => e.data);
-const faq = (await getCollection('faqTeams')).map((e) => e.data);
+const faq = (await getCollection('faqTeams')).map((e) => e.data).sort((a, b) => a.order - b.order);
 assertContentReady([...stats, ...research], strictContent());
 
 const url = new URL('/teams/', Astro.site).href;
