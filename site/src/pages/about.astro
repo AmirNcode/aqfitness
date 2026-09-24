@@ -1,0 +1,90 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CTASection from '../components/CTASection.astro';
+import { site, bookingHref } from '../config/site';
+import { personLd } from '../lib/schema';
+import portrait from '../assets/photos/alejandro-portrait.jpg';
+import thenAndNow from '../assets/photos/alejandro-then-and-now.jpg';
+import gym from '../assets/photos/alejandro-gym.jpg';
+---
+<BaseLayout
+  title="About Alejandro Rivas, founder of Aquam Fitness"
+  description="Alejandro Rivas is a Precision Nutrition certified coach and personal trainer in Toronto who has coached 200+ clients and 5,000+ group fitness classes."
+  breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'About', path: '/about/' }]}
+  jsonLd={[personLd(Astro.site!.href)]}
+>
+  <PageHero title="A nerd, a bodybuilder and a fat kid at heart" lead="Meet Alejandro Rivas, founder and head coach of Aquam Fitness.">
+    <Image slot="aside" src={portrait} alt="Alejandro Rivas standing in the gym" widths={[480, 960]} sizes="(max-width: 900px) 90vw, 480px" class="hero-photo" loading="eager" />
+  </PageHero>
+
+  <section class="section">
+    <div class="wrap story">
+      <div class="prose">
+        <h2>Where it started</h2>
+        <p>Alejandro hasn't always looked like the guy in the photos. He knows what it feels like to be overweight, to struggle to commit to a routine and a diet plan, and to start over again and again. He shares where he started because being there is what made him, and Aquam Fitness, who we are now.</p>
+        <p>Back in 2014, when he started his own fitness journey, he saw some results, but the training and diet methods out there were extreme. It was "do as you are told," with little education and no room for real life. He knew there had to be a more empowering, sustainable way.</p>
+        <h2>Why Aquam Fitness exists</h2>
+        <p>Since starting Aquam Fitness in 2020, the mission has been the same: educate, empower and guide people to become the best version of themselves. That means a better relationship with food, getting stronger and feeling confident in your body, without restrictive or extreme diets.</p>
+        <p>Having a body you're proud of isn't vanity. It's a sign of hard work, commitment and perseverance, and we believe everyone deserves it.</p>
+        <h2>Who we work with</h2>
+        <p>Alejandro originally set out to coach professional athletes. Then he discovered how much he loved coaching busy moms over 30 to get stronger, leaner and more confident. Today Aquam Fitness coaches those women one-on-one, and brings the same approach to whole teams through <a href="/teams/">Aquam Performance</a>.</p>
+        <h2>Off the clock</h2>
+        <p>Soccer is his number one passion. He's a gamer and a huge anime fan, and the total opposite of a party guy. He's also pursuing his pro card as a bodybuilder.</p>
+      </div>
+      <figure class="collage">
+        <Image src={thenAndNow} alt="Photo collage of Alejandro over the years, from before his fitness journey to today" widths={[480, 960]} sizes="(max-width: 900px) 90vw, 440px" />
+        <figcaption class="small muted">Then and now.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="wrap creds">
+      <div>
+        <h2>Why listen to us</h2>
+        <dl class="numbers">
+          <div><dt>{site.proof.clients}</dt><dd>{site.proof.clientsLabel}</dd></div>
+          <div><dt>{site.proof.classes}</dt><dd>{site.proof.classesLabel}</dd></div>
+        </dl>
+      </div>
+      <div>
+        <h3>Education and certifications</h3>
+        <ul>{site.credentials.map((c) => <li>{c}</li>)}</ul>
+        <h3>Group coaching at the highest level</h3>
+        <p>At Orangetheory Fitness, with more than 1,500 studios worldwide, Alejandro became the second coach from outside the US to coach on the main stage of the worldwide convention, and the first from outside the US to rank in the top 3 coaches in the world.</p>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    heading="Let's work together."
+    text="Whether it's your whole team or just you, it starts with a conversation."
+    primary={{ label: 'Book a call', href: '/book/' }}
+    secondary={{ label: 'Aquam Performance for teams', href: '/teams/' }}
+    image={gym}
+  />
+</BaseLayout>
+
+<style>
+  .hero-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; filter: grayscale(1); }
+  .story { display: grid; grid-template-columns: 3fr 2fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
+  .prose h2 { font-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem); margin-top: 1.4em; }
+  .prose h2:first-child { margin-top: 0; }
+  .prose p { color: var(--text); }
+  .collage { margin: 0; position: sticky; top: 96px; }
+  .collage img { width: 100%; height: auto; }
+  .collage figcaption { margin-top: 8px; }
+  .creds { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); }
+  .numbers { display: grid; gap: 24px; margin: 24px 0 0; }
+  .numbers dt { font-family: var(--font-display); font-weight: 800; font-size: clamp(3.5rem, 2.5rem + 4vw, 6rem); line-height: 0.9; color: var(--accent); }
+  .numbers dd { margin: 4px 0 0; color: rgb(255 255 255 / 0.85); }
+  .creds ul { margin: 0 0 32px; color: rgb(255 255 255 / 0.85); }
+  .creds li + li { margin-top: 6px; }
+  .creds p { color: rgb(255 255 255 / 0.85); }
+  @media (max-width: 900px) {
+    .story, .creds { grid-template-columns: 1fr; }
+    .collage { position: static; }
+  }
+</style>

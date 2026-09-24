@@ -1,0 +1,27 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Placeholder from '../components/Placeholder.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  updated: string;
+}
+const { title, description, path, updated } = Astro.props;
+---
+<BaseLayout title={title} description={description} breadcrumbs={[{ name: 'Home', path: '/' }, { name: title, path }]}>
+  <section class="section">
+    <div class="wrap legal">
+      <h1>{title}</h1>
+      <p class="small muted">Last updated {updated}. <Placeholder label="draft, needs review before launch" /></p>
+      <slot />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal { max-width: 760px; }
+  .legal :global(h2) { font-size: var(--fs-h3); margin-top: 2em; }
+  .legal :global(p), .legal :global(li) { color: var(--text); }
+</style>

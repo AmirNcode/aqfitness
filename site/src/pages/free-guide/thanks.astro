@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { bookingHref } from '../../config/site';
+---
+<BaseLayout title="Your guide is on its way" description="Thanks for requesting the Aquam Fitness meal-prep guide." mood="coaching">
+  <section class="section surface">
+    <div class="wrap stack">
+      <h1>Your guide is on its way</h1>
+      <p class="lead">Check your inbox. We'll email you the meal-prep guide, plus a few tips to help you get started.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href={bookingHref('consult')}>Book a free consult</a>
+        <a class="btn btn-ghost" href="/blog/">Read the blog</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

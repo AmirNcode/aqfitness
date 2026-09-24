@@ -1,0 +1,59 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { blogPostingLd } from '../../lib/schema';
+import { bookingHref } from '../../config/site';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const url = new URL(`/blog/${post.id}/`, Astro.site).href;
+const words = (post.body ?? '').split(/\s+/).length;
+const minutes = Math.max(1, Math.round(words / 230));
+const fmt = new Intl.DateTimeFormat('en-CA', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  type="article"
+  mood="coaching"
+  breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Blog', path: '/blog/' }, { name: post.data.title, path: `/blog/${post.id}/` }]}
+  jsonLd={[blogPostingLd({ title: post.data.title, description: post.data.description, url, datePublished: post.data.pubDate, dateModified: post.data.updatedDate })]}
+>
+  <article class="section">
+    <div class="wrap post">
+      <header>
+        <p class="meta small"><a href="/blog/">Blog</a> <span aria-hidden="true">/</span> <time datetime={post.data.pubDate.toISOString()}>{fmt.format(post.data.pubDate)}</time>, {minutes} min read</p>
+        <h1>{post.data.title}</h1>
+        <p class="byline">By {post.data.author}</p>
+      </header>
+      <div class="prose"><Content /></div>
+      <aside class="end">
+        <h2>Want help putting this into practice?</h2>
+        <p>Book a free 30-minute consult, or grab the free meal-prep guide.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href={bookingHref('consult')}>Book a free consult</a>
+          <a class="btn btn-ghost" href="/free-guide/">Get the free guide</a>
+        </div>
+      </aside>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .post { max-width: 720px; }
+  .meta { color: var(--slate); }
+  .meta a { color: var(--slate); }
+  h1 { font-size: clamp(2.25rem, 1.6rem + 3vw, 3.75rem); margin: 12px 0; }
+  .byline { font-weight: 600; margin-bottom: 40px; }
+  .prose :global(h2) { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.125rem); margin-top: 1.6em; }
+  .prose :global(p), .prose :global(li) { color: #26262a; line-height: 1.7; }
+  .prose :global(li + li) { margin-top: 6px; }
+  .prose :global(li::marker) { color: var(--accent-ink); }
+  .end { margin-top: 56px; padding: clamp(20px, 3vw, 32px); background: var(--sand); border-radius: var(--radius); }
+  .end h2 { font-size: var(--fs-h3); }
+</style>

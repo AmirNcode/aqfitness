@@ -1,0 +1,195 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Offer from '../components/Offer.astro';
+import Steps from '../components/Steps.astro';
+import TransformationGallery from '../components/TransformationGallery.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import FAQ from '../components/FAQ.astro';
+import CTASection from '../components/CTASection.astro';
+import Placeholder from '../components/Placeholder.astro';
+import { site, bookingHref } from '../config/site';
+import { serviceLd, faqLd } from '../lib/schema';
+import friendly from '../assets/photos/alejandro-friendly.jpg';
+import portrait from '../assets/photos/alejandro-portrait.jpg';
+
+const faq = (await getCollection('faqCoaching')).map((e) => e.data);
+const results = (await getCollection('testimonials')).map((e) => e.data);
+const quotes = results.filter((r) => r.quote).slice(0, 3);
+const gallery = results.filter((r) => !r.quote).slice(8, 16);
+
+const url = new URL('/coaching/', Astro.site).href;
+const description =
+  'One-on-one online fitness and nutrition coaching for busy women over 30. Get stronger, leaner and confident again, without restrictive diets.';
+---
+<BaseLayout
+  title="1:1 online fitness and nutrition coaching for women over 30"
+  description={description}
+  mood="coaching"
+  breadcrumbs={[{ name: 'Home', path: '/' }, { name: '1:1 Coaching', path: '/coaching/' }]}
+  jsonLd={[
+    serviceLd({ name: '1:1 online fitness and nutrition coaching', description, url, areaServed: [site.serviceArea.virtual] }),
+    faqLd(faq),
+  ]}
+>
+  <PageHero
+    mood="coaching"
+    size="xl"
+    title="Get stronger, leaner and confident again"
+    lead="One-on-one online coaching for busy women over 30. Training and nutrition that fit your life, with no restrictive diets and no giving up your social life."
+  >
+    <div class="btn-row">
+      <a class="btn btn-primary btn-lg" href={bookingHref('consult')}>Book a free consult</a>
+      <a class="btn btn-ghost btn-lg" href="/free-guide/">Get the free meal-prep guide</a>
+    </div>
+    <Image slot="aside" src={friendly} alt="Alejandro smiling and pointing at the camera" widths={[480, 960]} sizes="(max-width: 900px) 90vw, 480px" class="hero-photo" loading="eager" />
+  </PageHero>
+
+  <section class="section">
+    <div class="wrap who">
+      <div>
+        <h2>Built for moms who put everyone else first</h2>
+        <p class="lead">We work with professional child caregivers, aka momma bears: women over 30 who want to get stronger, leaner and feel confident in their body again, without compromising their social life.</p>
+        <p>Maybe you've tried every diet out there and they all worked for a few weeks. Maybe your attention has gone to everyone but you for years. Either way, you're not starting from zero. You just haven't found an approach that works for your life yet.</p>
+      </div>
+      <figure class="quote">
+        <blockquote>
+          <p>“I love hearing how happy these women are when they reach their goal, and knowing they can keep it. It's a rewarding feeling that's hard to explain.”</p>
+        </blockquote>
+        <figcaption>Alejandro Rivas, founder and head coach</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section surface">
+    <div class="wrap">
+      <div class="intro">
+        <h2>Two ways to work together</h2>
+        <p class="lead">Both run online through the Trainerize app, with weekly check-ins and a coach who adjusts your plan as you go. <Placeholder label="Alejandro to confirm what each option includes" /></p>
+      </div>
+      <div class="offers">
+        <Offer
+          title="Online coaching"
+          summary="Training and nutrition in one plan, built around your schedule."
+          includes={[
+            'A training plan: 3–4 workouts a week, 40–50 minutes each',
+            'Flexible nutrition coaching, where all foods fit',
+            'Weekly check-ins and plan adjustments',
+            'Progress tracking with the scale (optional), measurements and photos',
+            'Messaging support in the app',
+          ]}
+          best="you want one plan for training and food, and someone keeping you accountable."
+        />
+        <Offer
+          title="Nutrition coaching"
+          summary="For when you already train and want your food to match your goals."
+          includes={[
+            'Nutrition guidance built around foods you actually enjoy',
+            'Habits, meal planning and meal prep strategies',
+            'Weekly check-ins and adjustments',
+            'Education on protein, macros and calories',
+            'Messaging support in the app',
+          ]}
+          best="you're happy with your training but your nutrition keeps holding you back."
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="intro">
+        <h2>How it works</h2>
+      </div>
+      <Steps
+        steps={[
+          { title: 'Free consult', text: 'A 30-minute call to talk through your goals, your schedule and what has or hasn’t worked before.' },
+          { title: 'Your plan', text: 'We build your training and nutrition around your life, your tastes and your starting point.' },
+          { title: 'Weekly check-ins', text: 'You check in every week in the app. We look at the data and how you’re feeling.' },
+          { title: 'Adjust and keep going', text: 'We adjust as you progress, and teach you the why so the habits stick for life.' },
+        ]}
+      />
+    </div>
+  </section>
+
+  <section class="section surface">
+    <div class="wrap philosophy">
+      <div>
+        <h2>No diets. No banned foods. Aggressive patience.</h2>
+        <blockquote class="motto"><p>“Treat this program as something you can and will do for the rest of your life, not something you’ll do for three months.”</p></blockquote>
+      </div>
+      <ul class="beliefs">
+        <li>
+          <h3>All foods fit</h3>
+          <p>There's no such thing as good or bad food. You'll learn to enjoy treats, eat out and still make progress.</p>
+        </li>
+        <li>
+          <h3>Lift weights (you won't get bulky)</h3>
+          <p>Resistance training and daily movement are at the core. Lifting makes you stronger, leaner and more toned.</p>
+        </li>
+        <li>
+          <h3>Aggressive patience</h3>
+          <p>Work as hard as you can toward your goals, and be patient with the timeline. Lasting change takes time.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="intro">
+        <h2>Real clients, real habits</h2>
+      </div>
+      <div class="quotes">
+        {quotes.map((q) => (
+          <TestimonialCard quote={q.quote!} firstName={q.firstName} placeholder={q.placeholder} image={q.image} videoUrl={q.videoUrl} />
+        ))}
+      </div>
+      <div class="more">
+        <TransformationGallery items={gallery} layout="row" label="More client transformation photos" />
+        <a class="btn btn-ghost" href="/results/">See all client results</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section surface">
+    <div class="wrap">
+      <FAQ items={faq} heading="Questions about 1:1 coaching" />
+    </div>
+  </section>
+
+  <CTASection
+    heading="Ready to feel strong again?"
+    text="Book a free 30-minute consult. No pressure, just a conversation about your goals."
+    primary={{ label: 'Book a free consult', href: bookingHref('consult') }}
+    secondary={{ label: 'Get the free guide', href: '/free-guide/' }}
+    image={portrait}
+  />
+</BaseLayout>
+
+<style>
+  .hero-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius); }
+  .intro { max-width: 760px; margin-bottom: 40px; }
+  .who { display: grid; grid-template-columns: 3fr 2fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+  .quote { margin: 0; background: var(--peach); border-radius: var(--radius); padding: clamp(24px, 3vw, 40px); }
+  .quote blockquote { margin: 0; }
+  .quote p { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.125rem); line-height: 1.15; margin: 0 0 16px; }
+  .quote figcaption { font-weight: 600; }
+  .offers { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .philosophy { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); }
+  .motto { margin: 24px 0 0; padding-left: 20px; border-left: 4px solid var(--accent); }
+  .motto p { font-size: var(--fs-lead); margin: 0; }
+  .beliefs { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+  .beliefs li { background: var(--white); border-radius: var(--radius); padding: 20px 24px; }
+  .beliefs h3 { margin-bottom: 6px; }
+  .beliefs p { margin: 0; color: var(--text); }
+  .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
+  .quotes :global(.t) { background: var(--sand); }
+  .more { margin-top: 40px; display: grid; gap: 20px; justify-items: start; }
+  @media (max-width: 960px) {
+    .who, .offers, .philosophy { grid-template-columns: 1fr; }
+    .quotes { grid-template-columns: 1fr; }
+  }
+</style>

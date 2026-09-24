@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Placeholder from '../components/Placeholder.astro';
+import { site, bookingHref } from '../config/site';
+---
+<BaseLayout
+  title="Contact"
+  description="Send Aquam Fitness a message about Aquam Performance for your team or 1:1 online coaching. We reply within 2 business days."
+  breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact/' }]}
+>
+  <PageHero title="Send a message" lead="Tell us a little about what you're looking for. We reply within 2 business days." />
+  <section class="section surface">
+    <div class="wrap layout">
+      <form
+        class="contact-form"
+        name="contact"
+        method="POST"
+        action="/contact/thanks/"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        data-enhance="redirect"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="honeypot" aria-hidden="true">
+          <label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+        </p>
+
+        <div class="field">
+          <label for="c-interest">What are you interested in?</label>
+          <select id="c-interest" name="interest" required>
+            <option value="teams">Aquam Performance for my team</option>
+            <option value="coaching">1:1 coaching for myself</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="c-name">Name</label>
+            <input id="c-name" name="name" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="c-email">Email</label>
+            <input id="c-email" type="email" name="email" autocomplete="email" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="c-phone">Phone <span class="hint">(optional)</span></label>
+          <input id="c-phone" type="tel" name="phone" autocomplete="tel" />
+        </div>
+
+        <fieldset class="company" data-company>
+          <legend>About your team</legend>
+          <div class="row">
+            <div class="field">
+              <label for="c-company">Company</label>
+              <input id="c-company" name="company" autocomplete="organization" />
+            </div>
+            <div class="field">
+              <label for="c-size">Team size</label>
+              <select id="c-size" name="teamSize">
+                <option value="">Choose one</option>
+                <option>Under 8</option>
+                <option>8–10</option>
+                <option>11–20</option>
+                <option>21–50</option>
+                <option>50+</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="c-message">Message</label>
+          <textarea id="c-message" name="message" required></textarea>
+        </div>
+
+        <button class="btn btn-primary btn-lg" type="submit">Send message</button>
+        <p class="small status" data-status role="status" aria-live="polite"></p>
+      </form>
+
+      <aside class="side">
+        <h2>Rather talk?</h2>
+        <p>Book a free 30-minute call instead.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href={bookingHref('discovery')}>Discovery call for teams</a>
+          <a class="btn btn-ghost" href={bookingHref('consult')}>Free 1:1 consult</a>
+        </div>
+        <h2>Other ways to reach us</h2>
+        <ul>
+          <li>{site.email ? <a href={`mailto:${site.email}`}>{site.email}</a> : <Placeholder label="business email" />}</li>
+          <li><a href={site.social.instagram}>Instagram @vangaless</a></li>
+        </ul>
+        <p class="small muted">In person across the {site.serviceArea.inPerson}. Online everywhere in {site.serviceArea.virtual}.</p>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Preselect interest from ?interest= and only show the team fields when they apply.
+  const form = document.querySelector<HTMLFormElement>('form[name="contact"]');
+  const select = form?.querySelector<HTMLSelectElement>('#c-interest');
+  const company = form?.querySelector<HTMLFieldSetElement>('[data-company]');
+  if (form && select && company) {
+    const wanted = new URLSearchParams(location.search).get('interest');
+    if (wanted && [...select.options].some((o) => o.value === wanted)) select.value = wanted;
+    const sync = () => { company.hidden = select.value !== 'teams'; };
+    select.addEventListener('change', sync);
+    sync();
+  }
+</script>
+
+<style>
+  .layout { display: grid; grid-template-columns: 3fr 2fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
+  .contact-form { display: grid; gap: 20px; background: var(--white); padding: clamp(20px, 3vw, 36px); }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 12px; }
+  fieldset[hidden] { display: none; }
+  legend { font-weight: 600; margin-bottom: 8px; padding: 0; }
+  .status { margin: 0; min-height: 1.4em; }
+  .side h2 { font-size: var(--fs-h3); margin-top: 0; }
+  .side h2 + p { margin-bottom: 16px; }
+  .side .btn-row { margin-bottom: 40px; }
+  .side ul { list-style: none; padding: 0; display: grid; gap: 8px; }
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: 1fr; }
+    .row { grid-template-columns: 1fr; }
+  }
+</style>

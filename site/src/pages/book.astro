@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import BookingCard from '../components/BookingCard.astro';
+---
+<BaseLayout
+  title="Book a call"
+  description="Book a free 30-minute consult for 1:1 coaching, or a 30-minute discovery call about Aquam Performance for your team."
+  breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Book a call', path: '/book/' }]}
+>
+  <PageHero title="Book a call" lead="Pick the call that fits. Both are free, happen on Zoom and come with no pressure to sign up." />
+  <section class="section surface">
+    <div class="wrap cards">
+      <BookingCard
+        kind="discovery"
+        who="For companies and team leads"
+        title="Aquam Performance discovery call"
+        duration="30 minutes"
+        points={['Your team, goals and timeline', 'How the 12-week program works', 'Next steps and a tailored proposal']}
+      />
+      <div class="mood-coaching">
+        <BookingCard
+          kind="consult"
+          who="For individuals"
+          title="Free 1:1 coaching consult"
+          duration="30 minutes"
+          points={['Your goals and what has or hasn’t worked before', 'Online coaching vs. nutrition coaching', 'Pricing and how to get started']}
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
+  .cards > div { display: grid; }
+  @media (max-width: 860px) { .cards { grid-template-columns: 1fr; } }
+</style>

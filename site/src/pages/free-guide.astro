@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Placeholder from '../components/Placeholder.astro';
+---
+<BaseLayout
+  title="Free meal-prep guide"
+  description="Get Aquam Fitness's free meal-prep guide: plan your week, prep in under two hours and make eating well the easy choice."
+  mood="coaching"
+  breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Free meal-prep guide', path: '/free-guide/' }]}
+>
+  <PageHero
+    mood="coaching"
+    title="Your free meal-prep guide"
+    lead="Meal planning and prep is the one skill that makes every other fitness goal easier. This guide shows you how to plan your week and prep it without spending your whole Sunday in the kitchen."
+  >
+    <form
+      slot="aside"
+      class="guide-form"
+      name="free-guide"
+      method="POST"
+      action="/free-guide/thanks/"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      data-enhance="redirect"
+    >
+      <input type="hidden" name="form-name" value="free-guide" />
+      <p class="honeypot" aria-hidden="true">
+        <label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+      </p>
+      <h2>Send me the guide</h2>
+      <div class="field">
+        <label for="g-name">First name</label>
+        <input id="g-name" name="firstName" autocomplete="given-name" required />
+      </div>
+      <div class="field">
+        <label for="g-email">Email</label>
+        <input id="g-email" type="email" name="email" autocomplete="email" required />
+      </div>
+      <button class="btn btn-primary btn-lg" type="submit">Email me the guide</button>
+      <p class="small muted">You'll also get occasional training and nutrition tips. Unsubscribe any time.</p>
+      <p class="small status" data-status role="status" aria-live="polite"></p>
+    </form>
+  </PageHero>
+
+  <section class="section">
+    <div class="wrap inside">
+      <h2>What's inside</h2>
+      <p><Placeholder label="guide contents, to be written by Alejandro" /></p>
+      <ul>
+        <li>How to plan a week of meals in 20 minutes</li>
+        <li>A simple grocery list template</li>
+        <li>What to prep ahead: proteins, grains, vegetables and sauces</li>
+        <li>High-protein, high-volume meals that keep you full</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .guide-form { display: grid; gap: 16px; background: var(--white); border-radius: var(--radius); padding: clamp(20px, 3vw, 32px); }
+  .guide-form h2 { font-size: var(--fs-h3); margin: 0; }
+  .guide-form p { margin: 0; }
+  .inside { max-width: 760px; }
+  .inside ul { color: var(--text); }
+  .inside li + li { margin-top: 8px; }
+  .inside li::marker { color: var(--accent-ink); }
+</style>

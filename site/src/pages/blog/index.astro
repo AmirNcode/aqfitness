@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const fmt = new Intl.DateTimeFormat('en-CA', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+<BaseLayout
+  title="Blog: training, nutrition and habits"
+  description="Practical articles on training, nutrition, macros, meal prep and building habits that last, from Aquam Fitness coach Alejandro Rivas."
+  breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Blog', path: '/blog/' }]}
+>
+  <PageHero title="The blog" lead="Practical, no-nonsense articles on training, nutrition and building habits that last." />
+  <section class="section surface">
+    <div class="wrap">
+      <ul class="posts">
+        {posts.map((p) => (
+          <li>
+            <article>
+              <p class="date small"><time datetime={p.data.pubDate.toISOString()}>{fmt.format(p.data.pubDate)}</time></p>
+              <h2><a href={`/blog/${p.id}/`}>{p.data.title}</a></h2>
+              <p>{p.data.description}</p>
+            </article>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .posts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  article { background: var(--white); padding: clamp(20px, 3vw, 32px); border-top: 3px solid var(--black); height: 100%; }
+  article:hover { border-top-color: var(--accent); }
+  h2 { font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); }
+  h2 a { color: var(--black); text-decoration: none; }
+  h2 a:hover { text-decoration: underline; }
+  .date { color: var(--slate); margin-bottom: 8px; }
+  article p:last-child { color: var(--text); margin: 0; }
+  @media (max-width: 760px) { .posts { grid-template-columns: 1fr; } }
+</style>

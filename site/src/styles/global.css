@@ -39,8 +39,8 @@ h3 { font-size: var(--fs-h3); line-height: 1.1; font-weight: 700; }
 .section { padding-block: var(--section-y); }
 .surface { background: var(--surface); }
 .dark { background: var(--black); color: var(--white); }
-.dark a { color: var(--accent); }
-.dark a:hover { color: var(--white); }
+.dark a:not(.btn) { color: var(--accent); }
+.dark a:not(.btn):hover { color: var(--white); }
 .dark .lead, .dark .muted { color: var(--muted-dark); }
 .muted { color: var(--slate); }
 .stack > * + * { margin-top: var(--stack, 1rem); }

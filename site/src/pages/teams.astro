@@ -1,0 +1,322 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import WeekStrip from '../components/WeekStrip.astro';
+import StatRow from '../components/StatRow.astro';
+import Pillars from '../components/Pillars.astro';
+import AppScreens from '../components/AppScreens.astro';
+import ReportMock from '../components/ReportMock.astro';
+import ResearchTable from '../components/ResearchTable.astro';
+import CaseStudy from '../components/CaseStudy.astro';
+import FAQ from '../components/FAQ.astro';
+import CTASection from '../components/CTASection.astro';
+import { site, bookingHref } from '../config/site';
+import { serviceLd, faqLd } from '../lib/schema';
+import { strictContent } from '../lib/env';
+import { assertContentReady } from '../lib/content-guard';
+import gym from '../assets/photos/alejandro-gym.jpg';
+
+const stats = (await getCollection('stats')).map((e) => e.data).sort((a, b) => a.order - b.order);
+const research = (await getCollection('research')).map((e) => e.data);
+const faq = (await getCollection('faqTeams')).map((e) => e.data);
+assertContentReady([...stats, ...research], strictContent());
+
+const url = new URL('/teams/', Astro.site).href;
+const description =
+  'Aquam Performance is a 12-week team fitness and nutrition program. Weekly accountability, team competition and a progress report for your company every 4 weeks.';
+
+const snapshot = [
+  { value: '8+', label: 'participants per team. Bigger groups split into teams that compete.' },
+  { value: '12', label: 'weeks: a 4-week Foundation phase, then 8 weeks of the Habit Shift.' },
+  { value: 'Mon', label: 'start date, with a 20-minute kickoff call the Friday before.' },
+  { value: '1:1 + team', label: 'coaching for every employee, plus team challenges and a leaderboard.' },
+];
+
+const touchpoints = [
+  { name: 'Kickoff call', when: 'Friday before the Monday start', length: '20 min, mandatory', text: 'Answers questions and gets everyone set up to succeed from day one.' },
+  { name: 'Group chat', when: 'Ongoing', length: 'Any time', text: 'Open for questions whenever participants need it. No waiting for a scheduled call.' },
+  { name: 'Weekly check-in', when: 'Every week', length: 'Under 5 min', text: 'Fitness and nutrition data plus self-reported productivity. We adjust the program in real time.' },
+  { name: 'Team Q&A', when: 'Every 4 weeks', length: '30 min, optional', text: 'An open floor for participants to ask whatever is on their mind.' },
+];
+---
+<BaseLayout
+  title="Aquam Performance: 12-week team fitness and nutrition program"
+  description={description}
+  ogImage="performance"
+  breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Aquam Performance', path: '/teams/' }]}
+  jsonLd={[
+    serviceLd({ name: site.programName, description, url, areaServed: [`${site.serviceArea.inPerson} (in person)`, `${site.serviceArea.virtual} (virtual)`] }),
+    faqLd(faq),
+  ]}
+>
+  <PageHero
+    size="xl"
+    title="Aquam Performance"
+    lead="A 12-week team fitness and nutrition program built on competition, structure and weekly accountability. It's not just a wellness initiative. It's a business strategy."
+  >
+    <div class="btn-row">
+      <a class="btn btn-primary btn-lg" href={bookingHref('discovery')}>Book a discovery call</a>
+      <a class="btn btn-ghost btn-lg" href="/contact/?interest=teams">Send an inquiry</a>
+    </div>
+    <Image slot="aside" src={gym} alt="Alejandro Rivas coaching in the gym" widths={[480, 960]} sizes="(max-width: 900px) 90vw, 480px" class="hero-photo" loading="eager" />
+  </PageHero>
+
+  <section class="section dark">
+    <div class="wrap">
+      <h2 class="narrow">A sedentary workforce isn't just a wellness problem. It's a performance problem.</h2>
+      <StatRow stats={stats.slice(0, 4)} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="intro">
+        <h2>Three pillars, coached every week</h2>
+        <p class="lead">We coach, guide and educate in three key areas, so new routines turn into healthy, sustainable habits.</p>
+      </div>
+      <Pillars />
+    </div>
+  </section>
+
+  <section class="section surface">
+    <div class="wrap benefits">
+      <div>
+        <h2>People who move better, perform better</h2>
+      </div>
+      <div class="cols">
+        <div>
+          <h3>For your people</h3>
+          <ul>
+            <li>More energy through the workday, with fewer afternoon crashes</li>
+            <li>Sharper focus and faster decisions</li>
+            <li>Better sleep, lower stress, faster recovery</li>
+            <li>Feeling supported and invested in by their employer</li>
+            <li>Real, sustainable habits instead of a 4-week fix</li>
+          </ul>
+        </div>
+        <div>
+          <h3>For your organization</h3>
+          <ul>
+            <li>Fewer sick days and less presenteeism</li>
+            <li>People who are present, engaged and performing</li>
+            <li>A clear signal that you invest in your team</li>
+            <li>An edge in hiring and retention</li>
+            <li>A healthier workforce and lower long-term health costs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="intro">
+        <h2>Program snapshot</h2>
+        <p class="lead">We handle the day-to-day coaching and tracking, so your people benefit without HR and leadership taking on extra work.</p>
+      </div>
+      <dl class="snapshot">
+        {snapshot.map((s) => (
+          <div><dt>{s.value}</dt><dd>{s.label}</dd></div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <section class="section dark" id="curriculum">
+    <div class="wrap">
+      <div class="intro">
+        <h2>The 12-week curriculum</h2>
+        <p class="lead">A built-in curriculum that teaches the fundamentals of nutrition, training and recovery, and why we do what we do.</p>
+      </div>
+      <WeekStrip variant="full" onDark />
+      <div class="phase-cols">
+        <div>
+          <h3>Weeks 1–4: Foundation</h3>
+          <ul>
+            <li>Purposely simple, with a low barrier to entry</li>
+            <li>Employees get used to the app, the routine and new food habits</li>
+            <li>No leaderboard yet, and no pressure from habit scoring</li>
+            <li>Sets the base so weeks 5–12 can raise the intensity without losing anyone</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Weeks 5–12: the Habit Shift</h3>
+          <ul>
+            <li>The leaderboard opens and team competition kicks in</li>
+            <li>Points come mostly from habits, plus training, movement and meal tracking</li>
+            <li>A new weekly focus, cycling through nutrition, fitness and recovery</li>
+            <li>Habits drive most of the score. That's the Habit Shift.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="intro">
+        <h2>What employees experience</h2>
+        <p class="lead">Everything runs in Trainerize, a coaching app that's free for employees and easy to pick up: daily tasks, weekly check-ins, a team group chat and the built-in curriculum.</p>
+      </div>
+      <AppScreens />
+    </div>
+  </section>
+
+  <section class="section surface">
+    <div class="wrap">
+      <div class="intro">
+        <h2>Support that stays out of the way</h2>
+        <p class="lead">Structured enough to keep people accountable, light enough to stay out of your team's way.</p>
+      </div>
+      <ul class="touchpoints">
+        {touchpoints.map((t) => (
+          <li>
+            <h3>{t.name}</h3>
+            <p class="meta"><strong>{t.when}</strong><br />{t.length}</p>
+            <p>{t.text}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap measure">
+      <div>
+        <h2>Measure the habits. See the impact.</h2>
+        <div class="track">
+          <div>
+            <h3>What we track</h3>
+            <p class="small muted">Captured daily through the app, per employee, per week</p>
+            <ul>
+              <li>Workouts completed</li>
+              <li>Physical activity (steps)</li>
+              <li>Daily habits completed</li>
+              <li>Nutrition adherence</li>
+            </ul>
+          </div>
+          <div>
+            <h3>What you see</h3>
+            <p class="small muted">From weekly self-reported check-ins, shared as team totals</p>
+            <ul>
+              <li>Performance</li>
+              <li>Productivity</li>
+              <li>Absenteeism</li>
+              <li>Presenteeism (at work, but not performing)</li>
+            </ul>
+          </div>
+        </div>
+        <p>Streaks, instant rewards and weekly standings keep people engaged. Small wins become visible progress.</p>
+      </div>
+      <ReportMock />
+    </div>
+  </section>
+
+  <section class="section surface">
+    <div class="wrap">
+      <div class="intro">
+        <h2>As competitive or collaborative as you want it to be</h2>
+        <p class="lead">The program is a culture vehicle. We configure it to match your organization's energy: push competition, lean into teamwork, or blend both.</p>
+      </div>
+      <div class="tracks">
+        <div>
+          <h3>Competitive track</h3>
+          <ul>
+            <li>Individual and team leaderboards</li>
+            <li>Points for steps, meals, workouts and habits</li>
+            <li>Weekly standings to keep the energy high</li>
+            <li>Two teams going head to head when more than 10 people join</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Collaborative track</h3>
+          <ul>
+            <li>Group step goals</li>
+            <li>Shared recipe boards</li>
+            <li>Team nutrition challenges</li>
+            <li>Everyone pulling in the same direction</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="intro">
+        <h2>The research behind it</h2>
+        <p class="lead">Beyond our own pilot data, independent research shows the same pattern across industries: wellness programs that change habits pay for themselves.</p>
+      </div>
+      <ResearchTable rows={research} />
+    </div>
+  </section>
+
+  <section class="section surface">
+    <div class="wrap pilot">
+      <div>
+        <h2>Our pilot results</h2>
+        <p class="lead">Most of Alejandro's 1:1 clients work at corporations, which is where the idea for team programs came from. We've already run pilots with teams.</p>
+      </div>
+      <CaseStudy />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <FAQ items={faq} heading="Questions from HR and team leads" />
+    </div>
+  </section>
+
+  <CTASection
+    heading="Let's measure what happens when you invest in your people."
+    text="Book a 30-minute discovery call. We'll learn about your team and put together a proposal."
+    primary={{ label: 'Book a discovery call', href: bookingHref('discovery') }}
+    secondary={{ label: 'Send an inquiry', href: '/contact/?interest=teams' }}
+    image={gym}
+  />
+</BaseLayout>
+
+<style>
+  .hero-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; filter: grayscale(1) contrast(1.05); }
+  .narrow { max-width: 22ch; margin-bottom: 40px; }
+  .intro { max-width: 760px; margin-bottom: 40px; }
+  ul { margin: 0; }
+  li + li { margin-top: 8px; }
+  li::marker { color: var(--accent-ink); }
+  .dark li::marker { color: var(--accent); }
+  .benefits { display: grid; grid-template-columns: 1fr 2fr; gap: clamp(32px, 5vw, 72px); }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; border-top: 2px solid var(--black); padding-top: 28px; }
+  .cols ul, .phase-cols ul, .tracks ul, .track ul { color: var(--text); }
+  .snapshot { display: grid; grid-template-columns: repeat(4, 1fr); margin: 0; border-top: 2px solid var(--black); }
+  .snapshot div { padding: 24px 24px 0 0; }
+  .snapshot div + div { padding-left: 24px; border-left: 1px solid var(--line); }
+  .snapshot dt { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.5rem, 1.8rem + 3vw, 4rem); line-height: 1; text-transform: uppercase; margin-bottom: 12px; color: var(--accent-ink); }
+  .snapshot dd { margin: 0; color: var(--text); }
+  .phase-cols { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; margin-top: 56px; }
+  .phase-cols > div:last-child h3 { color: var(--accent); }
+  .dark .phase-cols ul { color: rgb(255 255 255 / 0.85); }
+  .touchpoints { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 2px solid var(--black); }
+  .touchpoints li { margin: 0; padding: 24px 24px 0 0; }
+  .touchpoints li + li { padding-left: 24px; border-left: 1px solid var(--line); }
+  .touchpoints h3 { margin-bottom: 8px; }
+  .meta { font-size: var(--fs-small); color: var(--slate); }
+  .touchpoints p:last-child { color: var(--text); margin: 0; }
+  .measure { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
+  .track { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; border-top: 2px solid var(--black); padding-top: 24px; margin-bottom: 24px; }
+  .track h3 { margin-bottom: 4px; }
+  .track .small { margin-bottom: 12px; }
+  .tracks { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; border-top: 2px solid var(--black); padding-top: 28px; }
+  .pilot { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+  @media (max-width: 960px) {
+    .benefits, .measure, .pilot, .phase-cols { grid-template-columns: 1fr; }
+    .snapshot, .touchpoints { grid-template-columns: 1fr 1fr; }
+    .snapshot div:nth-child(3), .touchpoints li:nth-child(3) { padding-left: 0; border-left: 0; }
+  }
+  @media (max-width: 600px) {
+    .cols, .track, .tracks { grid-template-columns: 1fr; }
+    .snapshot, .touchpoints { grid-template-columns: 1fr; }
+    .snapshot div + div, .touchpoints li + li { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  }
+</style>

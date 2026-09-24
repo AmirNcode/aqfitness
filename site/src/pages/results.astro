@@ -1,0 +1,62 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import TransformationGallery from '../components/TransformationGallery.astro';
+import CTASection from '../components/CTASection.astro';
+import { bookingHref } from '../config/site';
+import portrait from '../assets/photos/alejandro-portrait.jpg';
+
+const results = (await getCollection('testimonials')).map((e) => e.data);
+const quotes = results.filter((r) => r.quote);
+const photos = results.filter((r) => !r.quote);
+---
+<BaseLayout
+  title="Client results and testimonials"
+  description="Before and after transformations and testimonials from Aquam Fitness 1:1 coaching clients: fat loss, strength, confidence and habits that last."
+  mood="coaching"
+  breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Results', path: '/results/' }]}
+>
+  <PageHero
+    mood="coaching"
+    title="Client results"
+    lead="Weight lost, strength gained and, more often than not, a better relationship with food. These are real clients who stayed consistent and made it a lifestyle."
+  />
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="sr-only">In their words</h2>
+      <div class="quotes">
+        {quotes.map((q) => (
+          <TestimonialCard quote={q.quote!} firstName={q.firstName} placeholder={q.placeholder} image={q.image} videoUrl={q.videoUrl} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section surface">
+    <div class="wrap">
+      <div class="intro">
+        <h2>More transformations</h2>
+      </div>
+      <TransformationGallery items={photos} layout="grid" label="Client transformation photos" />
+      <p class="small note">Results vary from person to person and depend on consistency, starting point and lifestyle. See our <a href="/disclaimer/">health disclaimer</a>.</p>
+    </div>
+  </section>
+
+  <CTASection
+    heading="Your turn."
+    text="Book a free 30-minute consult and let's talk about your goals."
+    primary={{ label: 'Book a free consult', href: bookingHref('consult') }}
+    secondary={{ label: 'Explore 1:1 coaching', href: '/coaching/' }}
+    image={portrait}
+  />
+</BaseLayout>
+
+<style>
+  .intro { margin-bottom: 32px; }
+  .quotes { columns: 3 300px; column-gap: 20px; }
+  .quotes > :global(*) { break-inside: avoid; margin-bottom: 20px; background: var(--sand); }
+  .note { margin-top: 28px; color: var(--slate); }
+</style>
