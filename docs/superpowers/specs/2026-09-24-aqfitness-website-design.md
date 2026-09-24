@@ -308,7 +308,7 @@ site/src/
 |---|---|---|
 | Netlify hosting | Amir's Netlify, `*.netlify.app`, `noindex` | Transfer the site to Alejandro's Netlify team |
 | Netlify Forms (`contact`, `free-guide`, `newsletter`) | Real (submissions visible in Amir's Netlify) | Same, on his account. Turn on email notifications to him |
-| Emails via Resend | `netlify/functions/submission-created` runs on every verified submission. **With no `RESEND_API_KEY`, it logs the email it would have sent and exits OK** | Set `RESEND_API_KEY`, `EMAIL_FROM`, `EMAIL_OWNER`, and the audience/segment id |
+| Emails via Resend | `netlify/functions/submission-created` runs on every verified submission. **With no `RESEND_API_KEY`, it logs the email it would have sent and exits OK** | Set `RESEND_API_KEY`, `EMAIL_FROM`, `EMAIL_OWNER`, and `RESEND_SEGMENT_ID` (a Resend segment for newsletter contacts) |
 | Newsletter list | The same function logs "would add to audience" | Resend audience from the same env vars. Broadcasts are sent from the Resend dashboard |
 | Free guide | The thanks page says it's on its way, and the function logs | Upload the PDF, set `GUIDE_URL`, and the confirmation email includes it |
 | Calendly | `site.ts` → `calendly.consult` / `calendly.discovery` left empty. The buttons go to `/book/`, which shows a "Booking opens soon" [PH] note | Paste his two Calendly event URLs (Calendly with Zoom: he connects Zoom inside Calendly) |
@@ -383,7 +383,7 @@ repo root
 ├─ planning/  old-site/  material/   # reference only, git-ignored (repo is public)
 ```
 - **Styling:** plain CSS. Tokens live in `styles/tokens.css`, a small `global.css` holds the base styles, and components use Astro's scoped `<style>`. No Tailwind, so there are fewer dependencies and nothing extra for Alejandro's future developer to learn.
-- **Environment variables:** `SITE_URL`, `ALLOW_INDEXING`, `STRICT_CONTENT`, `RESEND_API_KEY`, `EMAIL_FROM`, `EMAIL_OWNER`, `RESEND_AUDIENCE_ID`, `GUIDE_URL`. All are optional; placeholder mode is whatever happens when a variable is missing. `CONTEXT` is set by Netlify.
+- **Environment variables:** `SITE_URL`, `ALLOW_INDEXING`, `STRICT_CONTENT`, `RESEND_API_KEY`, `EMAIL_FROM`, `EMAIL_OWNER`, `RESEND_SEGMENT_ID`, `GUIDE_URL`. All are optional; placeholder mode is whatever happens when a variable is missing. `CONTEXT` is set by Netlify.
 - **Node:** 24 LTS (Astro 7 needs ≥ 22.12), pinned in `.nvmrc` and in the Netlify environment.
 
 ## 12. Open items
