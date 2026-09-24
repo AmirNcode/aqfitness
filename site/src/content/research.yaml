@@ -1,0 +1,31 @@
+# Workplace wellness ROI studies cited in the pitch deck. Verify each before launch.
+- id: baicker-2010
+  source: Baicker, Cutler & Song, Health Affairs (2010)
+  scope: Meta-analysis of workplace wellness programs
+  finding: About $3.27 lower medical costs and $2.73 lower absenteeism costs per $1 spent.
+  url: null
+  verified: false
+- id: hbr-jnj-2010
+  source: Harvard Business Review (2010)
+  scope: Johnson & Johnson wellness program case study
+  finding: Reported returns of roughly $2.71 per $1 spent over the program period.
+  url: null
+  verified: false
+- id: rand-2014
+  source: RAND / Health Affairs (2014)
+  scope: PepsiCo wellness program, 7 years
+  finding: Overall return of about $1.50 per $1, driven mainly by disease management.
+  url: null
+  verified: false
+- id: cigna-avalere-2022
+  source: Cigna & Avalere (2022)
+  scope: Employer health investment study
+  finding: Employer health investment linked to lower costs and higher productivity.
+  url: null
+  verified: false
+- id: wellhub-2024
+  source: Wellhub, Return on Wellbeing (2024)
+  scope: Global survey of HR leaders
+  finding: Most employers offering wellness programs report a positive return.
+  url: null
+  verified: false

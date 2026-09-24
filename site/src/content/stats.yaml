@@ -1,0 +1,50 @@
+# Workplace-health figures from the pitch deck. Nothing ships as fact until verified against
+# its primary source (verified: true + sourceUrl). STRICT_CONTENT builds fail on unverified rows.
+- id: presenteeism-cost
+  value: 2–3×
+  label: Presenteeism (people at work but not fully productive) costs employers more than absenteeism.
+  sourceTitle: null
+  sourceUrl: null
+  year: null
+  verified: false
+  order: 1
+- id: hours-lost
+  value: 120 hrs
+  label: of productive time lost per employee each year, about 30 minutes a day.
+  sourceTitle: null
+  sourceUrl: null
+  year: null
+  verified: false
+  order: 2
+- id: sick-days
+  value: 2.5×
+  label: more sick days taken by sedentary workers than their active peers.
+  sourceTitle: null
+  sourceUrl: null
+  year: null
+  verified: false
+  order: 3
+- id: sitting-cognition
+  value: 70%
+  label: lower cognitive performance after 3+ hours of unbroken sitting.
+  sourceTitle: null
+  sourceUrl: null
+  year: null
+  verified: false
+  order: 4
+- id: absenteeism
+  value: 25–30%
+  label: lower absenteeism among participants in comprehensive wellness programs.
+  sourceTitle: null
+  sourceUrl: null
+  year: null
+  verified: false
+  order: 5
+- id: productivity
+  value: 20%
+  label: higher productivity versus non-participating peers.
+  sourceTitle: null
+  sourceUrl: null
+  year: null
+  verified: false
+  order: 6

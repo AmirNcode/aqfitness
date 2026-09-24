@@ -1,0 +1,50 @@
+# 1:1 coaching FAQ, cleaned up from the old site's FAQ page. Answers keep Alejandro's voice.
+- id: cost
+  question: How much does coaching cost?
+  answer: Every client is different, so our coaching isn't one-size-fits-all. We offer different programs and levels of support, and we'll recommend the right fit (and walk you through pricing) on your free consult.
+- id: online
+  question: Is coaching online?
+  answer: Yes. Coaching happens online through the Trainerize app, so you can work with us from anywhere in Canada, with check-ins, your training plan and nutrition guidance all in one place.
+  confirm: true
+- id: restrictive
+  question: Are your diets super restrictive?
+  answer: No, because we don't even recommend dieting. Diets don't work. We change your lifestyle and guide you through sustainable changes. Our goal is for your food choices to look the same whether you're losing weight, maintaining or building muscle.
+- id: who
+  question: Who do you work with?
+  answer: Professional child caregivers… aka badass moms over 30 who want to get toned, leaner and stronger, and feel confident in their body again.
+- id: when
+  question: When is the best time to join?
+  answer: Today, or whenever you're ready to make a change. If you're not ready to fully commit, then we're not ready to work together… yet!
+- id: tasty-food
+  question: If I join, can I still eat tasty food?
+  answer: Absolutely. "Cheat meals" are part of the program, because we want you to enjoy your social life with friends, your partner and your kids.
+- id: alcohol
+  question: Will I have to cut alcohol?
+  answer: Not necessarily. We will advise you to cut back, because it's very easy to drink a lot of calories. It helps with fat loss, and your skin and liver will thank you too.
+- id: hours
+  question: How many hours a week do I have to work out?
+  answer: We recommend 3–4 workouts a week, 40–50 minutes each. Depending on your fitness level and goals, that number may go up or down.
+- id: tracking
+  question: What if I don't want to track my food?
+  answer: Tracking is a tool and nothing more, but we highly encourage it. It puts food into perspective and shows how much you're actually eating versus what you think you're eating. If you never track, you'll never know what's working and what isn't. We'll give you tips and hacks to make it as easy as possible.
+- id: educate
+  question: Will you just tell me what to do, or will you teach me?
+  answer: We'll teach you. Our mission is to educate, empower and guide people to become the best version of themselves, so you'll understand the why behind everything we ask you to do.
+- id: bulky
+  question: Do I have to lift weights? What if I don't want to get bulky?
+  answer: Yes, you'll be lifting weights. And don't worry, you won't get bulky on our watch. Building that much muscle takes years of very intentional work; lifting makes you stronger, leaner and more toned.
+- id: progress
+  question: How do you measure progress?
+  answer: It depends on the person. We use three methods, the scale, measurements and photos. The scale can cause anxiety for some people, so it's up to you. Measurements and photos are done monthly, so we always have data to compare and make decisions with.
+- id: supplements
+  question: Will you recommend supplements?
+  answer: It depends on where you are. If you're just starting out, we focus on the foundations of nutrition first. Once you're more advanced, we may recommend a few supplements to support your nutrition, recovery or training.
+- id: cardio
+  question: Is cardio enough to reach my goals?
+  answer: Cardio is an important part of fitness, but we highly recommend both strength training and cardio. Both are essential for reaching your goals.
+- id: term
+  question: Is coaching short-term or long-term?
+  answer: It varies. Someone who has struggled to change their lifestyle for years, wants to lose 30+ lb or has a history of disordered eating needs a longer approach than someone looking to lose 5–10 lb.
+- id: slow-progress
+  question: What if I don't see the progress I expected?
+  answer: We'll help you set realistic expectations from day one. We'd love every client to see results ASAP, but it doesn't always work like that. Social media has conditioned people to believe everything happens fast; long-lasting change takes time. Live by our mantra, aggressive patience. Work as hard as you can toward your goals, but be patient with your timeline.

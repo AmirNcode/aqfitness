@@ -1,0 +1,263 @@
+# Client results from the old site (testimonials page). Order matches the old page.
+# firstName is a placeholder until Alejandro maps names to clients.
+
+- id: result-01
+  firstName: null
+  quote: "For my entire life, before I started working with Aquam Fitness, I had been struggling with my diet and my body image. Working with them helped me understand the importance of eating, creating habits and best yet, how to gain weight (and muscle) appropriately and become toned. I am now the most confident and strongest I\u2019ve ever been."
+  image: ../assets/results/result-01.jpg
+  videoUrl: "https://www.instagram.com/reel/C1-yYMiNMhc/"
+  side: coaching
+  featured: true
+  placeholder: true
+
+- id: result-02
+  firstName: null
+  quote: "I have tried every diet known to humankind and it was always the same approach, eat like a rabbit and starve yourself, which would \u201cwork\u201d for a short period of time. Working with the AQ team was when I realized I did not have to starve and that I could make this my lifestyle instead. I can enjoy treats, food and still make progress."
+  image: ../assets/results/result-02.jpg
+  videoUrl: "https://www.instagram.com/reel/Cw5DX1Fgd29/"
+  side: coaching
+  featured: true
+  placeholder: true
+
+- id: result-03
+  firstName: null
+  quote: "I am 60 and I feel and weigh the same as when I was in my 20s."
+  image: ../assets/results/result-03.jpg
+  videoUrl: "https://www.instagram.com/reel/DElf3DftyXr/"
+  side: coaching
+  featured: false
+  placeholder: true
+
+- id: result-04
+  firstName: null
+  quote: null
+  image: ../assets/results/result-04.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-05
+  firstName: null
+  quote: "My biggest win during this program has been the fact that I have learned so much about food, the importance of protein and the importance of moving during the day. Working from home makes moving challenging, but after starting this program those little movement breaks paired with good nutrition, have made a huge difference in my performance both in the gym and at work."
+  image: ../assets/results/result-05.jpg
+  videoUrl: "https://www.instagram.com/reel/DE6DmZKtkrj/"
+  side: coaching
+  featured: false
+  placeholder: true
+
+- id: result-06
+  firstName: null
+  quote: "Feeling proud of how far I\u2019ve come on this fitness journey. It\u2019s been all about consistency, pushing through the tough days, and trusting the process. Grateful for where I am today and excited for what\u2019s next! Keep showing up, the results are worth it."
+  image: ../assets/results/result-06.jpg
+  videoUrl: "https://www.instagram.com/reel/C2OH3rPpwP5/"
+  side: coaching
+  featured: false
+  placeholder: true
+
+- id: result-07
+  firstName: null
+  quote: "Being a cook makes it harder to be in shape and one of the common myths of this industry is that if you are a cook, it is impossible to be in shape. For a long time I thought that it was the case, until one day I had enough because I was not happy with the way I felt and looked. Before things got worse I decided to make a change. They adjusted my program to my lifestyle and at any point I felt like I was doing something I could not sustain, they were very understanding and made my life easy given my lifestyle."
+  image: ../assets/results/result-07.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: true
+
+- id: result-08
+  firstName: null
+  quote: null
+  image: ../assets/results/result-08.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-09
+  firstName: null
+  quote: "I have always struggled with gaining weight and it was not until I worked with Ale that I was not only able to gain 10+ lb, but I was able to maintain it and enjoy the processs."
+  image: ../assets/results/result-09.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: true
+
+- id: result-10
+  firstName: null
+  quote: "This was the first time in my life that I felt like I was not dieting. I have tried many things and this is the first time things felt normal and the approach was more of a lifestyle than a 3-month diet."
+  image: ../assets/results/result-10.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: true
+
+- id: result-11
+  firstName: null
+  quote: "I lost over 10 lb and despite the weight loss which was a great win, it was the impact in all the other areas of my life that I did not know I needed. This program taught me the importance of planning, mindfulness and how to enjoy the process."
+  image: ../assets/results/result-11.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: true
+
+- id: result-12
+  firstName: null
+  quote: null
+  image: ../assets/results/result-12.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-13
+  firstName: null
+  quote: "I was always super skinny, but after becoming a mom and a wife, all my attention went to everyone else, but me. I gained weight and also lost strength. I didn't think I was capable of lifting 15 lb dumbbells until I met Alejandro. He made sure I was able to lift it and even though I hated him (at first) for it, it made me strong and I am proud that I now can lift 15+ lb with no problem and I can carry my daughter with ease."
+  image: ../assets/results/result-13.jpg
+  videoUrl: null
+  side: coaching
+  featured: true
+  placeholder: true
+
+- id: result-14
+  firstName: null
+  quote: null
+  image: ../assets/results/result-14.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-15
+  firstName: null
+  quote: "Losing 20 lb during my time with the AQ team was great, however that was not my biggest win. It was learning that I am important, that I have to set time aside for myself. While being a mom is important, I can take care of myself as well. The importance of overall movement and being mindful even when going on vacation will go a long way."
+  image: ../assets/results/result-15.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: true
+
+- id: result-16
+  firstName: null
+  quote: null
+  image: ../assets/results/result-16.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-17
+  firstName: null
+  quote: null
+  image: ../assets/results/result-17.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-18
+  firstName: null
+  quote: null
+  image: ../assets/results/result-18.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-19
+  firstName: null
+  quote: null
+  image: ../assets/results/result-19.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-20
+  firstName: null
+  quote: null
+  image: ../assets/results/result-20.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-21
+  firstName: null
+  quote: null
+  image: ../assets/results/result-21.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-22
+  firstName: null
+  quote: null
+  image: ../assets/results/result-22.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-23
+  firstName: null
+  quote: null
+  image: ../assets/results/result-23.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-24
+  firstName: null
+  quote: null
+  image: ../assets/results/result-24.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-25
+  firstName: null
+  quote: null
+  image: ../assets/results/result-25.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-26
+  firstName: null
+  quote: null
+  image: ../assets/results/result-26.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-27
+  firstName: null
+  quote: null
+  image: ../assets/results/result-27.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-28
+  firstName: null
+  quote: null
+  image: ../assets/results/result-28.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-29
+  firstName: null
+  quote: null
+  image: ../assets/results/result-29.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
