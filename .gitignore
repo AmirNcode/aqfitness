@@ -1,0 +1,12 @@
+# client material: private, never commit (repo is public)
+/material/
+/planning/
+/old-site/
+# build / deps
+node_modules/
+site/dist/
+site/.astro/
+.netlify/
+.env
+.env.*
+.DS_Store
