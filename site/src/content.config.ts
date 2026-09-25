@@ -66,4 +66,14 @@ const research = defineCollection({
   }),
 });
 
-export const collections = { blog, testimonials, faqTeams, faqCoaching, stats, research };
+const pilot = defineCollection({
+  loader: file('src/content/pilot.yaml'),
+  schema: z.object({
+    id: z.string(),
+    value: z.string(),
+    label: z.string(),
+    order: z.number(),
+  }),
+});
+
+export const collections = { blog, testimonials, faqTeams, faqCoaching, stats, research, pilot };

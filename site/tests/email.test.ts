@@ -29,7 +29,7 @@ describe('buildEmails', () => {
 
   it('teams interest uses company wording', () => {
     const [conf] = buildEmails('contact', { email: 'a@b.co', interest: 'teams', company: 'Acme' }, cfg);
-    expect(conf.subject).toMatch(/Aquam Performance/);
+    expect(conf.subject).toMatch(/Habit Shift/);
   });
 
   it('rejects unknown forms and invalid emails', () => {

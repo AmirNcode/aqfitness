@@ -1,0 +1,19 @@
+# Habit Shift pilot results, from Alejandro's "Habit Shift Pilot" PDF (material/, 2026).
+# Pilot: 8 weeks, 5 employees. Since then: 22 employees across two coaching teams.
+# Scores are self-reported in weekly check-ins on a 1–10 scale. Update as new data comes in.
+- id: performance
+  order: 1
+  value: 8.3/10
+  label: average work-effectiveness score in the pilot, holding at 7.6/10 across all 22 employees
+- id: recovery
+  order: 2
+  value: 8.2/10
+  label: average recovery score in the pilot, so people come back to work rested
+- id: nutrition
+  order: 3
+  value: 7.4–7.7
+  label: out of 10 for nutrition adherence, sustained week after week, not only in week one
+- id: weight
+  order: 4
+  value: 55.2 lbs
+  label: lost across the pilot team, and 19.5 lbs more so far among 19 new starts

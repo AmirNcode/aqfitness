@@ -1,24 +1,19 @@
 ---
-// The program's 12 weeks as one visual: Foundation (1–4) outlined, the Habit Shift (5–12) filled.
+// The program's first 12 weeks as one visual: Foundation (1–4) outlined, Momentum (5–12) filled.
 // Real sequence data, so the numbering carries meaning.
-interface Props {
-  variant?: 'compact' | 'full';
-  onDark?: boolean;
-}
-const { variant = 'compact', onDark = false } = Astro.props;
 const weeks = Array.from({ length: 12 }, (_, i) => i + 1);
 const checkIns = new Set([4, 8, 12]);
 ---
-<figure class:list={['strip', variant, { 'on-dark': onDark }]}>
+<figure class="strip">
   <div class="phases" aria-hidden="true">
     <span class="phase-label foundation">Foundation</span>
-    <span class="phase-label shift">The Habit Shift</span>
+    <span class="phase-label shift">Momentum</span>
   </div>
-  <ol class="weeks" aria-label="12-week program: weeks 1 to 4 Foundation, weeks 5 to 12 the Habit Shift">
+  <ol class="weeks" aria-label="First 12 weeks: weeks 1 to 4 Foundation, weeks 5 to 12 Momentum">
     {weeks.map((w) => (
       <li class:list={['week', w <= 4 ? 'is-foundation' : 'is-shift', { 'is-checkin': checkIns.has(w) }]}>
         <span class="num">{w}</span>
-        <span class="sr-only">{w <= 4 ? 'Foundation' : 'Habit Shift'}{checkIns.has(w) ? ', team check-in and company report' : ''}</span>
+        <span class="sr-only">{w <= 4 ? 'Foundation' : 'Momentum'}{checkIns.has(w) ? ', team check-in and company report' : ''}</span>
       </li>
     ))}
   </ol>
@@ -30,14 +25,12 @@ const checkIns = new Set([4, 8, 12]);
 
 <style>
   .strip { margin: 0; --ink: var(--black); --fill: var(--accent); }
-  .on-dark { --ink: var(--white); }
   .phases {
     display: grid; grid-template-columns: 4fr 8fr; gap: 6px; margin-bottom: 8px;
     font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
     font-size: clamp(0.95rem, 0.8rem + 0.6vw, 1.25rem); letter-spacing: 0.02em; color: var(--ink);
   }
-  .shift { color: var(--accent-ink); }  /* small text: orange only passes contrast on dark */
-  .on-dark .shift { color: var(--accent); }
+  .shift { color: var(--accent-ink); }  /* small text: plain orange fails contrast on light */
   .weeks {
     list-style: none; margin: 0; padding: 0;
     display: grid; grid-template-columns: repeat(12, 1fr); gap: 6px;
@@ -47,7 +40,6 @@ const checkIns = new Set([4, 8, 12]);
     border: 2px solid var(--ink); color: var(--ink);
     font-family: var(--font-display); font-weight: 800; font-size: clamp(0.9rem, 0.6rem + 1.2vw, 1.6rem); line-height: 1;
   }
-  .full .week { aspect-ratio: 1 / 1.1; }
   .is-shift { background: var(--fill); border-color: var(--fill); color: var(--black); }
   .is-checkin::after {
     content: ''; position: absolute; left: 50%; bottom: -14px; translate: -50% 0;

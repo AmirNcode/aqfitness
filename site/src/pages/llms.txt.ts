@@ -16,7 +16,7 @@ ${site.name} is run by ${site.founder}, a Precision Nutrition certified nutritio
 
 ## Services
 
-- [${site.programName}](${u('/teams/')}): a 12-week team fitness and nutrition program for companies. Teams of 8+ get 1:1 coaching, team challenges and a leaderboard, and the company receives a progress report every 4 weeks. Weeks 1–4 are the Foundation phase; weeks 5–12 are ${site.methodName}. Delivered virtually, with in-person sessions at offices in the ${site.serviceArea.inPerson}.
+- [${site.programName}](${u('/teams/')}): a team fitness and nutrition program for companies, starting at 12 weeks. Teams of 8+ get 1:1 coaching, team challenges and a leaderboard, and the company receives a progress report every 4 weeks. Weeks 1–4 are the Foundation phase; weeks 5–12 build Momentum. Delivered virtually, with in-person sessions at offices in the ${site.serviceArea.inPerson}.
 - [1:1 online coaching](${u('/coaching/')}): online training and nutrition coaching (or nutrition-only coaching) for busy women over 30, anywhere in ${site.serviceArea.virtual}. No restrictive diets; all foods fit.
 - [Book a call](${u('/book/')}): free 30-minute discovery calls for companies and free consults for individuals. Pricing is shared on the call.
 

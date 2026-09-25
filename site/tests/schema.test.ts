@@ -21,7 +21,7 @@ describe('schema builders', () => {
   });
 
   it('service carries provider and areaServed', () => {
-    const s: any = serviceLd({ name: 'Aquam Performance', description: 'd', url: 'https://a/teams/', areaServed: ['Greater Toronto Area'] });
+    const s: any = serviceLd({ name: 'Habit Shift', description: 'd', url: 'https://a/teams/', areaServed: ['Greater Toronto Area'] });
     expect(s['@type']).toBe('Service');
     expect(s.provider['@type']).toBe('Organization');
     expect(s.areaServed).toEqual(['Greater Toronto Area']);

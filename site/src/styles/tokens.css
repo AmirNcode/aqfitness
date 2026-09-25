@@ -3,7 +3,7 @@
   --black: #000000;        /* deck black; primary ink and dark sections */
   --charcoal: #2b2b2d;     /* cards on black */
   --white: #ffffff;
-  --paper: #f4f3ef;        /* Aquam Performance surface */
+  --paper: #f4f3ef;        /* Teams (Habit Shift) surface */
   --sand: #efe9e0;         /* 1:1 coaching surface */
   --navy: #1e2b3a;         /* report / data surfaces */
   --slate: #56667b;        /* secondary text on light (>= 4.86:1 on white, paper and sand) */
@@ -29,7 +29,7 @@
   --maxw: 1200px;
   --section-y: clamp(64px, 9vw, 128px);
 
-  /* Mood-dependent (Aquam Performance default) */
+  /* Mood-dependent (teams / Habit Shift default) */
   --surface: var(--paper);
   --radius: 0px;
   --heading-case: uppercase;

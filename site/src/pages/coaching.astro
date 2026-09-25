@@ -1,6 +1,5 @@
 ---
 import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import Offer from '../components/Offer.astro';
@@ -9,16 +8,28 @@ import TransformationGallery from '../components/TransformationGallery.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import FAQ from '../components/FAQ.astro';
 import CTASection from '../components/CTASection.astro';
-import Placeholder from '../components/Placeholder.astro';
 import { site, bookingHref } from '../config/site';
 import { serviceLd, faqLd } from '../lib/schema';
-import friendly from '../assets/photos/alejandro-friendly.jpg';
 import portrait from '../assets/photos/alejandro-portrait.jpg';
 
 const faq = (await getCollection('faqCoaching')).map((e) => e.data).sort((a, b) => a.order - b.order);
 const results = (await getCollection('testimonials')).map((e) => e.data);
 const quotes = results.filter((r) => r.quote).slice(0, 3);
 const gallery = results.filter((r) => !r.quote).slice(8, 16);
+
+// Both options share the same nutrition coaching and support. Online coaching adds training.
+const shared = [
+  'Flexible nutrition coaching built around foods you enjoy, where all foods fit',
+  'Habits, meal planning and meal prep strategies',
+  'Education on protein, macros and calories',
+  'Weekly check-ins and plan adjustments',
+  'Progress tracking with measurements, photos and the scale (optional)',
+  'Messaging support in the app',
+];
+const training = [
+  'A training plan built around your schedule: 3–4 workouts a week, 40–50 minutes each',
+  'Exercise video reviews to check your form, when you need them',
+];
 
 const url = new URL('/coaching/', Astro.site).href;
 const description =
@@ -38,21 +49,23 @@ const description =
     mood="coaching"
     size="xl"
     title="Get stronger, leaner and confident again"
-    lead="One-on-one online coaching for busy women over 30. Training and nutrition that fit your life, with no restrictive diets and no giving up your social life."
+    lead="1:1 coaching for women 35+ who want to feel stronger, leaner, and more confident in their bodies, without giving up the foods they love or spending hours in the gym."
   >
+    <p class="lead hero-more">We'll help you build the strength, nutrition habits, and consistency to get results that fit into your real life and keep them forever.</p>
     <div class="btn-row">
       <a class="btn btn-primary btn-lg" href={bookingHref('consult')}>Book a free consult</a>
       <a class="btn btn-ghost btn-lg" href="/free-guide/">Get the free meal-prep guide</a>
     </div>
-    <Image slot="aside" src={friendly} alt="Alejandro smiling and pointing at the camera" widths={[480, 960]} sizes="(max-width: 900px) 90vw, 480px" class="hero-photo" loading="eager" />
   </PageHero>
 
   <section class="section">
     <div class="wrap who">
       <div>
         <h2>Built for moms who put everyone else first</h2>
-        <p class="lead">We work with professional child caregivers, aka momma bears: women over 30 who want to get stronger, leaner and feel confident in their body again, without compromising their social life.</p>
-        <p>Maybe you've tried every diet out there and they all worked for a few weeks. Maybe your attention has gone to everyone but you for years. Either way, you're not starting from zero. You just haven't found an approach that works for your life yet.</p>
+        <p class="lead">We work with professional child caregivers, aka momma bears. Women 30+ who have spent years taking care of everyone else and are finally ready to make themselves a priority, without giving up their social life or making fitness a second job.</p>
+        <p>Maybe you've tried every diet out there, and they all worked… for a few weeks. Maybe you've been spinning your wheels, wondering why what used to work doesn't seem to work anymore.</p>
+        <p>Either way, <strong>you're not starting from zero. You just haven't found an approach that works for your life yet.</strong></p>
+        <p><strong>Ready to stop starting over? Let's get to work.</strong></p>
       </div>
       <figure class="quote">
         <blockquote>
@@ -67,31 +80,19 @@ const description =
     <div class="wrap">
       <div class="intro">
         <h2>Two ways to work together</h2>
-        <p class="lead">Both run online through the Trainerize app, with weekly check-ins and a coach who adjusts your plan as you go. <Placeholder label="Alejandro to confirm what each option includes" /></p>
+        <p class="lead">Both run online through the Trainerize app and include the same nutrition coaching, weekly check-ins and support. Online coaching adds your training.</p>
       </div>
       <div class="offers">
         <Offer
           title="Online coaching"
-          summary="Training and nutrition in one plan, built around your schedule."
-          includes={[
-            'A training plan: 3–4 workouts a week, 40–50 minutes each',
-            'Flexible nutrition coaching, where all foods fit',
-            'Weekly check-ins and plan adjustments',
-            'Progress tracking with the scale (optional), measurements and photos',
-            'Messaging support in the app',
-          ]}
+          summary="Everything in nutrition coaching, plus a training plan built around your schedule."
+          includes={[...training, ...shared]}
           best="you want one plan for training and food, and someone keeping you accountable."
         />
         <Offer
           title="Nutrition coaching"
-          summary="For when you already train and want your food to match your goals."
-          includes={[
-            'Nutrition guidance built around foods you actually enjoy',
-            'Habits, meal planning and meal prep strategies',
-            'Weekly check-ins and adjustments',
-            'Education on protein, macros and calories',
-            'Messaging support in the app',
-          ]}
+          summary="The same coaching, check-ins and support, for when you already have your training covered."
+          includes={shared}
           best="you're happy with your training but your nutrition keeps holding you back."
         />
       </div>
@@ -107,8 +108,8 @@ const description =
         steps={[
           { title: 'Free consult', text: 'A 30-minute call to talk through your goals, your schedule and what has or hasn’t worked before.' },
           { title: 'Your plan', text: 'We build your training and nutrition around your life, your tastes and your starting point.' },
-          { title: 'Weekly check-ins', text: 'You check in every week in the app. We look at the data and how you’re feeling.' },
-          { title: 'Adjust and keep going', text: 'We adjust as you progress, and teach you the why so the habits stick for life.' },
+          { title: 'Weekly check-ins', text: 'You check in every week in the app. It’s not just about weight loss: we ask about your energy, sleep, stress and performance, because we want you to look and feel your best.' },
+          { title: 'Adjust and keep going', text: 'We use your check-in data to decide what to change, whether that’s your training, your calories or your habits. Then we adjust your plan and teach you the why, so the habits stick for life.' },
         ]}
       />
     </div>
@@ -170,8 +171,7 @@ const description =
 </BaseLayout>
 
 <style>
-  /* Wide source photo: Alejandro sits in the left ~45%, so anchor the crop there. */
-  .hero-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 6% 50%; border-radius: var(--radius); }
+  .hero-more { max-width: 52ch; margin: -12px 0 28px; }
   .intro { max-width: 760px; margin-bottom: 40px; }
   .who { display: grid; grid-template-columns: 3fr 2fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
   .quote { margin: 0; background: var(--peach); border-radius: var(--radius); padding: clamp(24px, 3vw, 40px); }

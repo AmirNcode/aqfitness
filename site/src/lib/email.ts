@@ -78,12 +78,12 @@ export function buildEmails(form: string, data: Record<string, string>, cfg: Ema
       const teams = data.interest === 'teams';
       const confirmation: OutgoingEmail = {
         to: email,
-        subject: teams ? 'Thanks for your interest in Aquam Performance' : 'Thanks for reaching out to Aquam Fitness',
+        subject: teams ? 'Thanks for your interest in Habit Shift' : 'Thanks for reaching out to Aquam Fitness',
         html: layout(
           teams ? 'Let’s talk about your team' : 'We got your message',
           p(hello(name)) +
             p(teams
-              ? 'Thanks for your interest in Aquam Performance, our 12-week team fitness and nutrition program. Alejandro will get back to you within 2 business days.'
+              ? 'Thanks for your interest in Habit Shift, our team fitness and nutrition program. Alejandro will get back to you within 2 business days.'
               : 'Thanks for reaching out. Alejandro will get back to you within 2 business days.') +
             p(`Want to skip the wait? <a href="${esc(book)}" style="color:#B8431D">Book a call</a> at a time that suits you.`),
           cfg.siteUrl,
@@ -93,7 +93,7 @@ export function buildEmails(form: string, data: Record<string, string>, cfg: Ema
       const notification: OutgoingEmail = {
         to: cfg.owner,
         replyTo: email,
-        subject: `New ${teams ? 'Aquam Performance inquiry' : 'website message'}${data.company ? ` from ${data.company}` : ''}`,
+        subject: `New ${teams ? 'Habit Shift inquiry' : 'website message'}${data.company ? ` from ${data.company}` : ''}`,
         html: layout('New contact form submission', fieldsTable(data), cfg.siteUrl),
       };
       return [confirmation, notification];

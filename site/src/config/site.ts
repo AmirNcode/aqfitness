@@ -2,8 +2,7 @@
 // shows a placeholder, and `STRICT_CONTENT=true` builds will flag it (see lib/content-guard).
 export const site = {
   name: 'Aquam Fitness',
-  programName: 'Aquam Performance',
-  methodName: 'the Habit Shift',
+  programName: 'Habit Shift',
   tagline: 'Eat. Train. Live.',
   founder: 'Alejandro Rivas',
   description:

@@ -1,7 +1,7 @@
 # Aquam Fitness website: design spec
 
 - **Date:** 2026-09-24
-- **Status:** Approved. First draft built and deployed as a demo (2026-09-24)
+- **Status:** Approved. First draft built and deployed as a demo (2026-09-24). Revised the same day after Alejandro's first review (see §16)
 - **Client:** Alejandro Rivas, Aquam Fitness (aqfitness.ca, Toronto)
 - **Builder:** Amir
 
@@ -16,13 +16,13 @@
 
 Replace the old Shopify site with a fast, static Astro site that sells two things:
 
-1. **Aquam Performance**, a 12-week team fitness and nutrition program for companies (the new growth focus). Its method is called **the Habit Shift**.
+1. **Habit Shift**, a team fitness and nutrition program for companies, starting at 12 weeks (the new growth focus). Its first 12 weeks run in two phases: **Foundation** (weeks 1–4) and **Momentum** (weeks 5–12), as in the deck.
 2. **1:1 online coaching**, which has two options: training + nutrition, or nutrition only. It's aimed at the existing audience: women over 30 and busy professional moms.
 
 Every page drives toward a **booked call**. No prices are shown anywhere.
 
 ### Success criteria
-- A company visitor understands what Aquam Performance is within one screen of the home page, and can reach "Book a discovery call" in ≤ 2 clicks from any page.
+- A company visitor understands what Habit Shift is within one screen of the home page, and can reach "Book a discovery call" in ≤ 2 clicks from any page.
 - An individual visitor reaches 1:1 coaching from the home page in 1 click.
 - Lighthouse on mobile scores ≥ 95 for Performance, Accessibility, Best Practices and SEO on Home, Teams, Coaching and a blog post.
 - Every old Shopify URL redirects to a sensible new page (no 404s from old links).
@@ -48,11 +48,11 @@ Every page drives toward a **booked call**. No prices are shown anywhere.
 
 ## 3. Messaging
 
-| | Aquam Performance (companies) | 1:1 Coaching (individuals) |
+| | Habit Shift (companies) | 1:1 Coaching (individuals) |
 |---|---|---|
 | Buyer | HR / People & Culture, founders and CEOs of smaller companies, team managers, wellness committees | Women over 30 and busy professional moms, online anywhere in Canada |
 | Core promise | "Competitive edge starts with your people." Healthier habits lead to more energy, sharper focus, fewer sick days and a stronger team | Stronger, leaner and confident again, without restrictive diets or giving up your social life |
-| Proof | Pilots already run (data placeholder), cited research, 200+ clients, 5000+ classes coached, PN + CanFitPro | 29 before/after transformations, 11 written testimonials, Alejandro's own story |
+| Proof | Pilot results (8-week pilot, then 22 employees), cited research, 200+ clients, 5000+ classes coached, PN + CanFitPro | 29 before/after transformations, 11 written testimonials, Alejandro's own story |
 | Tone | **Professional**: confident, data-led, calm | **Friendly**: warm, direct, a little playful (his voice) |
 | Primary CTA | Book a discovery call (30 min) | Book a free consult (30 min) |
 | Secondary CTA | Contact form (company inquiry) | Free meal-prep guide, newsletter |
@@ -62,12 +62,12 @@ The deck's research stats may be used only after they've been checked against th
 ## 4. Information architecture
 
 ### 4.1 Sitemap and URLs
-URLs describe the offer, not the program name, so they stay stable if "Aquam Performance" gets renamed.
+URLs describe the offer, not the program name, so they stay stable if the program gets renamed (it already was once: "Aquam Performance" became "Habit Shift").
 
 | URL | Page | Side |
 |---|---|---|
 | `/` | Home: Teams first, with a clear door to 1:1 | Shared |
-| `/teams/` | Aquam Performance | Professional |
+| `/teams/` | Habit Shift | Professional |
 | `/coaching/` | 1:1 online coaching | Friendly |
 | `/results/` | Transformations + testimonials | Friendly |
 | `/about/` | Alejandro: story, credentials, mission | Shared |
@@ -110,34 +110,31 @@ All 6 blog posts keep their old slugs, so `/blogs/news/:slug` maps 1:1.
 The blocks listed for each page come from the named sources. Items marked **[PH]** are placeholders until Alejandro supplies the real content.
 
 ### 5.1 Home `/`
-1. **Hero (professional):** "Competitive edge starts with your people." Subline: a 12-week team fitness + nutrition program that builds healthier habits, sharper focus and stronger teams. CTAs: **Book a discovery call** and "How it works ↓". A small link: "Looking for 1:1 coaching? →"
-2. **12-week strip:** the program's 12 weeks as one graphic (Foundation outlined, the Habit Shift in orange), full width under the hero copy. *(Build note: this replaced the planned marquee. "Eat. Train. Live." now appears as large type in the footer, which keeps motion to a minimum.)*
+1. **Hero (professional):** "Competitive edge starts with your people." Subline (Alejandro's wording): "We are not just a wellness initiative. It's a business strategy." CTAs: **Book a discovery call** and "How it works ↓". A small link: "Looking for 1:1 coaching? →"
+2. **12-week strip:** the program's 12 weeks as one graphic (Foundation outlined, Momentum in orange), full width under the hero copy. *(Build note: this replaced the planned marquee. "Eat. Train. Live." now appears as large type in the footer, which keeps motion to a minimum.)*
 3. **The problem:** 3 verified stats with source links.
 4. **Three pillars:** Movement · Nutrition · Recovery (from the deck).
-5. **How the 12 weeks work:** a condensed timeline (Foundation 1–4, then the Habit Shift 5–12), linking to `/teams/`.
-6. **Proof strip:** pilot result headline **[PH]**, 200+ clients, 5000+ classes, PN / CanFitPro badges.
+5. **How the 12 weeks work:** a condensed timeline (Foundation 1–4, then Momentum 5–12), linking to `/teams/`.
+6. **Proof strip:** the pilot results card, 200+ clients, 5000+ classes, PN / CanFitPro badges.
 7. **1:1 door (friendly block, warm background):** "Not here for your team? Train with Alejandro 1:1." Links to `/coaching/`.
 8. **Results teaser:** 3 transformations and 1 quote, linking to `/results/`.
 9. **Latest posts:** 3 cards.
 10. **Final CTA:** full-bleed black & white photo, "Are you ready to compete?", Book a discovery call.
 
-### 5.2 Aquam Performance `/teams/` (source: pitch deck)
-1. **Hero:** "Aquam Performance" (eyebrow), "Competitive edge starts with your people." "Not just a wellness initiative. A business strategy." CTA: Book a discovery call.
+### 5.2 Habit Shift `/teams/` (source: pitch deck, pilot PDF)
+Alejandro wants this page to stay big picture; he covers the details on the discovery call.
+
+1. **Hero:** "Habit Shift", "A team fitness and nutrition program, starting at 12 weeks…" "It's not just a wellness initiative. It's a business strategy." CTA: Book a discovery call.
 2. **The problem:** "A sedentary workforce isn't just a wellness problem — it's a performance problem." Verified stats only.
 3. **The solution:** three pillars (Movement, Nutrition, Recovery).
-4. **Who benefits:** two columns, *For your people* and *For your organization* (from deck slide 5, trimmed).
-5. **Program snapshot:** 8+ participants per team (groups over 10 split into two competing teams) · 12 weeks · Monday start with a Friday kickoff · 1:1 + team coaching · "We handle the day-to-day, so HR doesn't take on extra work."
-6. **The 12-week curriculum:** a timeline component.
-   - Weeks 1–4, **Foundation**: low barrier, learn the app, no leaderboard yet.
-   - Weeks 5–12, **the Habit Shift**: the leaderboard opens, habits drive the score, and the weekly focus rotates through nutrition, fitness and recovery.
-   - Markers for the kickoff and the 4-weekly team check-ins.
-7. **What employees experience:** Trainerize screenshots (from the deck), daily tasks, group chat, weekly check-ins, built-in curriculum. The app is free for employees.
-8. **Support structure:** kickoff call (mandatory, 20 min), group chat (ongoing), weekly check-in (under 5 min; confirm this, since the deck says ">5"), team Q&A (optional, 30 min, every 4 weeks).
-9. **Measurement:** "What we track" (from the app: workouts, steps, habits, nutrition adherence) and "What you see" (self-reported: performance, productivity, absenteeism, presenteeism). Plus a **sample 4-week report**, built in HTML/CSS/SVG so crawlers can read it, with anonymous team-level numbers and the note "Individual body composition stays private."
-10. **Culture driver:** competitive track vs. collaborative track, "You set the culture", and two-team competition.
-11. **Evidence:** a table of the verified research rows, each linked to its source.
-12. **Pilot results [PH]:** an anonymous case-study card (team size, industry, 12-week outcomes, a quote).
-13. **FAQ for HR** (FAQPage schema). Items that need Alejandro to confirm the answer are marked [confirm]:
+4. **Program snapshot:** 8+ participants per team · 12+ weeks ("the beginning, not the whole thing") · 1:1 + team coaching · "We handle the day-to-day, so HR doesn't take on extra work." Closes with "Support that stays out of the way" and its one-line subtitle.
+5. **Measurement:** "What we track" (from the app: workouts, steps, habits, nutrition adherence) and "What you see" (self-reported: performance, productivity, absenteeism, presenteeism). Plus a **sample 4-week report**, built in HTML/CSS/SVG so crawlers can read it, with anonymous team-level numbers and the note "Individual body composition stays private."
+6. **Pilot results:** from Alejandro's "Habit Shift Pilot" PDF (`material/`, not committed). An 8-week pilot with 5 employees, then 22 employees across two coaching teams: 8.3/10 work effectiveness (7.6 at 22), 8.2/10 recovery, 7.4–7.7/10 nutrition adherence, 55.2 lbs lost in the pilot (+19.5 lbs among 19 new starts). Data in `pilot.yaml`. The PDF itself is not published: it names pilot participants.
+7. **Evidence:** a table of the verified research rows, each linked to its source.
+
+*Removed after Alejandro's review:* who benefits (people/organization), the 12-week curriculum, what employees experience (Trainerize screenshots), the support touchpoints, the Monday start, and the competitive/collaborative tracks.
+
+8. **FAQ for HR** (FAQPage schema). Items that need Alejandro to confirm the answer are marked [confirm]:
     - What does HR have to do?
     - How much time does it take employees?
     - Is individual health data shared with the company? (No: team-level reporting only.)
@@ -145,13 +142,13 @@ The blocks listed for each page come from the named sources. Items marked **[PH]
     - Different fitness levels?
     - What does it cost? (Tailored; book a call.)
     - Insurance and certifications? (Liability insured; PN, CanFitPro, First Aid/CPR.)
-14. **CTA:** Book a discovery call, with a company-inquiry form as the alternative.
+9. **CTA:** Book a discovery call, with a company-inquiry form as the alternative.
 
 ### 5.3 1:1 Coaching `/coaching/` (source: old About + FAQ)
-1. **Hero (friendly):** a stronger, leaner, more confident you, without restrictive diets or giving up your social life. CTA: **Book a free consult**.
-2. **Who it's for:** busy women over 30 and professional moms (warm copy from the old About).
-3. **Two options:** *Online coaching (training + nutrition)* and *Nutrition coaching*, each with what's included and "Pricing shared on your free consult."
-4. **How it works:** a real sequence: free consult → your plan → weekly check-ins in Trainerize → adjust and keep going.
+1. **Hero (friendly, text only, no photo):** Alejandro's subtitle, "1:1 coaching for women 35+ who want to feel stronger, leaner, and more confident…". CTA: **Book a free consult**.
+2. **Who it's for:** "Built for moms who put everyone else first", in Alejandro's words (women 30+, momma bears, "Ready to stop starting over?").
+3. **Two options:** *Online coaching* and *Nutrition coaching* share one list of what's included; online coaching adds the training plan and exercise video reviews. "Pricing shared on your free consult."
+4. **How it works:** a real sequence: free consult → your plan → weekly check-ins (not just weight: energy, sleep, stress, performance) → adjust using the check-in data, and keep going.
 5. **Philosophy:** all foods fit, resistance training + movement, "Treat this as something you'll do for the rest of your life, not for three months", and "aggressive patience".
 6. **Results teaser + testimonials.**
 7. **FAQ** (the old site's 16 FAQs, typos fixed, answers kept in his voice, trimmed to the ones relevant to 1:1).
@@ -189,8 +186,8 @@ Netlify form `contact` with these fields:
 - name
 - email
 - phone (optional)
-- **interested in** (Aquam Performance for my team / 1:1 coaching / Something else)
-- company and team size (shown only when "Aquam Performance" is selected; still in the static HTML so Netlify detects them)
+- **interested in** (Habit Shift for my team / 1:1 coaching / Something else)
+- company and team size (shown only when "Habit Shift" is selected; still in the static HTML so Netlify detects them)
 - message
 - honeypot (spam trap)
 
@@ -260,7 +257,7 @@ All components are `.astro`. JavaScript appears only where marked JS.
 | `FeatureList` / `TwoColumnBenefits` | teams, coaching | |
 | `ReportMock` | teams | HTML/SVG sample report, anonymous |
 | `ResearchTable` | teams | Scrolls sideways on its own on narrow screens |
-| `CaseStudyCard` [PH] | home, teams | |
+| `CaseStudyCard` | home, teams | pilot figures from `pilot.yaml` |
 | `OptionCards` | coaching | Two offers, no prices |
 | `Steps` | coaching | Real sequence, numbered |
 | `TransformationGallery` | results, teasers | Sideways scroll-snap rows (no JS), lazy images |
@@ -275,7 +272,7 @@ All components are `.astro`. JavaScript appears only where marked JS.
 ### 6.5 Imagery
 - **Performance side:** black & white treatment (CSS `filter: grayscale(1)` on the source, or pre-processed) with the orange accent used sparingly.
 - **Coaching side:** full-color client photos.
-- **Sources:** old-site images (transformations, watermark OK for now), deck image34 (Alejandro in the gym), the deck's white/black logo PNGs, and the Trainerize screenshots used as-is. The one exception is the leaderboard screenshot (`image32`): the file inside the .pptx is unblurred, and the names and faces are hidden only by black boxes drawn on top on the slide. The website copy bakes those boxes into the image.
+- **Sources:** old-site images (transformations, watermark OK for now), deck image34 (Alejandro in the gym), the deck's white/black logo PNGs, and the Trainerize screenshots used as-is. The one exception is the leaderboard screenshot (`image32`): the file inside the .pptx is unblurred, and the names and faces are hidden only by black boxes drawn on top on the slide. The website copy bakes those boxes into the image. *(Revision: the site no longer shows any Trainerize screenshots, see §16. The deck image still needs fixing on Alejandro's side.)*
 - **Excluded:** the deck's stock photos (Noun Project credit lines, license unknown).
 - **Upgrade later:** his professional headshots and group coaching photos, and a vector logo from Canva.
 - **Delivery:** all images go through `astro:assets` (AVIF/WebP, responsive `srcset`, width and height set, lazy loading below the fold).
@@ -295,6 +292,7 @@ site/src/
     faq-coaching.yaml
     stats.yaml             # value, label, sourceTitle, sourceUrl, year, verified: bool
     research.yaml          # source, scope, finding, url, verified: bool
+    pilot.yaml             # Habit Shift pilot results: value, label, order
   config/
     site.ts                # name, tagline, URLs, nav, socials, email [PH], serviceArea,
                            # calendly.{consult,discovery} [PH], feature flags
@@ -335,7 +333,7 @@ The go-live checklist (§13) turns this table into steps.
 
 ### 9.2 Structured data (JSON-LD)
 - **Site-wide:** `Organization` (Aquam Fitness, logo, `sameAs` socials) + `WebSite`.
-- **`/teams/`:** `Service` (Aquam Performance, `provider` Organization, `areaServed` GTA in person and Canada virtual) + `FAQPage`.
+- **`/teams/`:** `Service` (Habit Shift, `provider` Organization, `areaServed` GTA in person and Canada virtual) + `FAQPage`.
 - **`/coaching/`:** `Service` (online coaching, `areaServed` Canada) + `FAQPage`.
 - **`/about/`:** `Person` (Alejandro Rivas, `jobTitle`, `hasCredential`, `worksFor`).
 - **Posts:** `BlogPosting`. **All inner pages:** `BreadcrumbList`.
@@ -390,7 +388,7 @@ repo root
 
 | # | Item | Owner | Blocks the demo? |
 |---|---|---|---|
-| 1 | Pilot results (numbers, team size, industry, quote) | Alejandro | No, [PH] |
+| 1 | Pilot results | Alejandro | Resolved: from the pilot PDF. A quote from the pilot team lead or HR would still help |
 | 2 | First names mapped to testimonials | Alejandro | No, [PH] |
 | 3 | Headshots and group coaching photos | Alejandro | No, old images meanwhile |
 | 4 | Vector logo (Canva) | Amir, from Canva access | No, PNG meanwhile |
@@ -435,3 +433,14 @@ repo root
   - A test submission succeeds, with JS on and with JS off.
   - The function log shows the placeholder email.
 - The demo returns `noindex` (header + robots) and production settings produce indexable output.
+
+## 16. Revision log
+
+**2026-09-24, Alejandro's first review**
+- Program renamed from "Aquam Performance" to **Habit Shift** everywhere (pages, footer, emails, llms.txt, schema, OG image). Weeks 5–12 are now called **Momentum**, the deck's own phase name, so it doesn't clash with the program name.
+- Home hero subline replaced with his line.
+- `/teams/` trimmed to the big picture (see §5.2). The Trainerize mention in the remote-teams FAQ became "a coaching app". `AppScreens` and the app screenshots were deleted.
+- Pilot results filled in from the pilot PDF; the case-study placeholders are gone.
+- `/coaching/`: hero photo removed; his copy for the hero, "Built for moms…", the two offers and How it works steps 3–4.
+- Open questions for Alejandro: the hero says 35+ while "Built for moms" says 30+; the pilot PDF footer says aquamfitness.com while the site assumes aqfitness.ca.
+

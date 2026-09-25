@@ -1,4 +1,4 @@
-# FAQ for HR, founders and team leads (Aquam Performance). Answers come from the pitch deck
+# FAQ for HR, founders and team leads (Habit Shift). Answers come from the pitch deck
 # and Alejandro's questionnaire. `confirm: true` = Alejandro must confirm before launch.
 - id: hr-effort
   order: 1
@@ -17,7 +17,7 @@
 - id: remote
   order: 4
   question: Do you work with remote or hybrid teams?
-  answer: Yes. The program is mostly virtual, delivered through the Trainerize app, a team group chat and video calls. For teams in the Greater Toronto Area, we can also run sessions at your office.
+  answer: Yes. The program is mostly virtual, delivered through a coaching app, a team group chat and video calls. For teams in the Greater Toronto Area, we can also run sessions at your office.
 - id: levels
   order: 5
   question: What if our team has very different fitness levels?
