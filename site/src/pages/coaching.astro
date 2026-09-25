@@ -1,4 +1,5 @@
 ---
+import type { ImageMetadata } from 'astro';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
@@ -8,9 +9,12 @@ import TransformationGallery from '../components/TransformationGallery.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import FAQ from '../components/FAQ.astro';
 import CTASection from '../components/CTASection.astro';
+import CoachCard from '../components/CoachCard.astro';
 import { site, bookingHref } from '../config/site';
 import { serviceLd, faqLd } from '../lib/schema';
 import portrait from '../assets/photos/alejandro-portrait.jpg';
+
+const photos: Record<string, ImageMetadata | undefined> = { alejandro: portrait };
 
 const faq = (await getCollection('faqCoaching')).map((e) => e.data).sort((a, b) => a.order - b.order);
 const results = (await getCollection('testimonials')).map((e) => e.data);
@@ -106,7 +110,7 @@ const description =
       </div>
       <Steps
         steps={[
-          { title: 'Free consult', text: 'A 30-minute call to talk through your goals, your schedule and what has or hasn’t worked before.' },
+          { title: 'Free consult', text: 'A free 30-minute call to find out where you’re at, how you got to this point and what your goals are. We’ll also look at your schedule and what has or hasn’t worked for you before.' },
           { title: 'Your plan', text: 'We build your training and nutrition around your life, your tastes and your starting point.' },
           { title: 'Weekly check-ins', text: 'You check in every week in the app. It’s not just about weight loss: we ask about your energy, sleep, stress and performance, because we want you to look and feel your best.' },
           { title: 'Adjust and keep going', text: 'We use your check-in data to decide what to change, whether that’s your training, your calories or your habits. Then we adjust your plan and teach you the why, so the habits stick for life.' },
@@ -116,6 +120,18 @@ const description =
   </section>
 
   <section class="section surface">
+    <div class="wrap">
+      <div class="intro">
+        <h2>Meet your coaches</h2>
+        <p class="lead">Whoever you work with, you get the same approach: a plan built around your life, weekly check-ins and a coach in your corner.</p>
+      </div>
+      <div class="coaches">
+        {site.team.map((c) => <CoachCard {...c} image={photos[c.id]} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
     <div class="wrap philosophy">
       <div>
         <h2>No diets. No banned foods. Aggressive patience.</h2>
@@ -138,7 +154,7 @@ const description =
     </div>
   </section>
 
-  <section class="section">
+  <section class="section surface">
     <div class="wrap">
       <div class="intro">
         <h2>Real clients, real habits</h2>
@@ -155,7 +171,7 @@ const description =
     </div>
   </section>
 
-  <section class="section surface">
+  <section class="section">
     <div class="wrap">
       <FAQ items={faq} heading="Questions about 1:1 coaching" />
     </div>
@@ -178,21 +194,21 @@ const description =
   .quote blockquote { margin: 0; }
   .quote p { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.125rem); line-height: 1.15; margin: 0 0 16px; }
   .quote figcaption { font-weight: 600; }
-  .offers { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .offers, .coaches { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
   .philosophy { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); }
   .motto { margin: 24px 0 0; padding-left: 20px; border-left: 4px solid var(--accent); }
   .motto p { font-size: var(--fs-lead); margin: 0; }
   .beliefs { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
-  .beliefs li { background: var(--white); border-radius: var(--radius); padding: 20px 24px; }
+  .beliefs li { background: var(--sand); border-radius: var(--radius); padding: 20px 24px; }
   .beliefs h3 { margin-bottom: 6px; }
   .beliefs p { margin: 0; color: var(--text); }
   .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
-  .quotes :global(.t) { background: var(--sand); }
+  .quotes :global(.t) { background: var(--white); }
   .more { margin-top: 40px; display: grid; gap: 20px; }
   .more .btn { justify-self: start; }
   .more > :global(.gallery) { min-width: 0; }
   @media (max-width: 960px) {
-    .who, .offers, .philosophy { grid-template-columns: 1fr; }
+    .who, .offers, .coaches, .philosophy { grid-template-columns: 1fr; }
     .quotes { grid-template-columns: 1fr; }
   }
 </style>

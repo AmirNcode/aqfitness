@@ -49,6 +49,18 @@ export function personLd(siteUrl: string) {
   };
 }
 
+/** A coach other than the founder. Name and title only until their details are confirmed. */
+export function coachLd(siteUrl: string, coach: { id: string; firstName: string; lastName: string | null; role: string }) {
+  return {
+    ...ctx,
+    '@type': 'Person',
+    name: [coach.firstName, coach.lastName].filter(Boolean).join(' '),
+    jobTitle: coach.role,
+    worksFor: organizationRef(siteUrl),
+    url: abs(siteUrl, `/about/#${coach.id}`),
+  };
+}
+
 export function faqLd(items: { question: string; answer: string }[]) {
   return {
     ...ctx,

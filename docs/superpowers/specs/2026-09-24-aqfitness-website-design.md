@@ -110,13 +110,13 @@ All 6 blog posts keep their old slugs, so `/blogs/news/:slug` maps 1:1.
 The blocks listed for each page come from the named sources. Items marked **[PH]** are placeholders until Alejandro supplies the real content.
 
 ### 5.1 Home `/`
-1. **Hero (professional):** "Competitive edge starts with your people." Subline: "Habit Shift isn't just a wellness initiative. It's a business strategy." CTAs: **Book a discovery call** and "How it works ↓". A small link: "Looking for 1:1 coaching? →"
+1. **Hero (professional):** "Your competitive edge starts with your people." Subline: "Habit Shift isn't just a wellness initiative. It's a business strategy." CTAs: **Book a discovery call** and "How it works ↓". A small link: "Looking for 1:1 coaching? →"
 2. ~~**12-week strip**~~ *(Removed 2026-09-25 at the client's request, along with the `WeekStrip` component. It had replaced the planned marquee; "Eat. Train. Live." stays as large type in the footer.)*
 3. **The problem:** 3 verified stats with source links.
 4. **Three pillars:** Movement · Nutrition · Recovery (from the deck).
 5. **How the 12 weeks work:** a condensed timeline (Foundation 1–4, then Momentum 5–12), linking to `/teams/`.
 6. **Proof strip:** the pilot results card, 200+ clients, 5000+ classes, PN / CanFitPro badges.
-7. **1:1 door (friendly block, warm background):** "Not here for your team? Train with Alejandro 1:1." Links to `/coaching/`.
+7. **1:1 door (friendly block, warm background):** "Not here for your team? Train one-on-one with one of our coaches." Links to `/coaching/`.
 8. **Results teaser:** 3 transformations and 1 quote, linking to `/results/`.
 9. **Latest posts:** 3 cards.
 10. **Final CTA:** full-bleed black & white photo, "Are you ready to compete?", Book a discovery call.
@@ -447,4 +447,14 @@ repo root
 - Home hero subline changed to "Habit Shift isn't just a wellness initiative. It's a business strategy." This fixes the grammar and puts the program name back on the home hero.
 - The 12-week strip was removed from the home hero. `WeekStrip` was deleted, and the teams share image no longer shows the week boxes.
 - Program snapshot: "12+ weeks minimum; programs can run 16, 20 weeks or longer."
+
+**2026-09-25, second review (coaching team)**
+- Home headline: "Your competitive edge starts with your people." The 1:1 door now says "Train one-on-one with one of our coaches."
+- **Vicky joins as a coach**, so visitors see it isn't a one-person business.
+  - `/about/` is now "Meet the team": Alejandro's story, then his credentials, then Vicky's bio in her own words. The only edits to her bio are punctuation, plus "and I was working full-time".
+  - `/coaching/` has a "Meet your coaches" section with two cards (`CoachCard`), linking to `/about/#alejandro` and `/about/#vicky`.
+  - Coach data lives in `site.team`, and JSON-LD adds `coachLd` for Vicky.
+  - [PH] still missing: her photo (being edited), her last name and her certifications.
+- Coaching "How it works" step 1 now describes the consult as finding out where you're at, how you got here and your goals.
+- "Alejandro will get back to you" became "We'll get back to you" on the contact thank-you page and in the confirmation emails. The footer link reads "About us".
 

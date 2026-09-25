@@ -35,6 +35,23 @@ export const site = {
     'Certified Personal Trainer (CanFitPro)',
     'First Aid & CPR',
   ],
+  // Coaches shown on /about/ and /coaching/. `null` fields show a placeholder until Alejandro sends them.
+  team: [
+    {
+      id: 'alejandro',
+      firstName: 'Alejandro',
+      lastName: 'Rivas' as string | null,
+      role: 'Founder and head coach',
+      summary: 'Precision Nutrition certified coach and personal trainer who has coached 200+ clients since 2020.',
+    },
+    {
+      id: 'vicky',
+      firstName: 'Vicky',
+      lastName: null as string | null,
+      role: 'Coach',
+      summary: 'Helps women see that self-love isn’t selfish, and that they can live in a body they’re proud of.',
+    },
+  ],
   proof: {
     clients: '200+',
     clientsLabel: 'clients coached since 2020',

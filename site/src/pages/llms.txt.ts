@@ -12,7 +12,7 @@ export const GET: APIRoute = async ({ site: origin }) => {
 
 > ${site.description}
 
-${site.name} is run by ${site.founder}, a Precision Nutrition certified nutrition coach and certified personal trainer based in Toronto, Canada. He has coached ${site.proof.clients} clients since 2020 and ${site.proof.classes} group fitness classes.
+${site.name} is run by ${site.founder}, a Precision Nutrition certified nutrition coach and certified personal trainer based in Toronto, Canada. He has coached ${site.proof.clients} clients since 2020 and ${site.proof.classes} group fitness classes. Coach Vicky also works one-on-one with women, helping them build a healthy relationship with food.
 
 ## Services
 
@@ -22,7 +22,7 @@ ${site.name} is run by ${site.founder}, a Precision Nutrition certified nutritio
 
 ## About
 
-- [About ${site.founder}](${u('/about/')})
+- [Meet the coaches](${u('/about/')})
 - [Client results](${u('/results/')})
 - [Contact](${u('/contact/')})
 

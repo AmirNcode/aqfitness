@@ -83,8 +83,8 @@ export function buildEmails(form: string, data: Record<string, string>, cfg: Ema
           teams ? 'Let’s talk about your team' : 'We got your message',
           p(hello(name)) +
             p(teams
-              ? 'Thanks for your interest in Habit Shift, our team fitness and nutrition program. Alejandro will get back to you within 2 business days.'
-              : 'Thanks for reaching out. Alejandro will get back to you within 2 business days.') +
+              ? 'Thanks for your interest in Habit Shift, our team fitness and nutrition program. We’ll get back to you within 2 business days.'
+              : 'Thanks for reaching out. We’ll get back to you within 2 business days.') +
             p(`Want to skip the wait? <a href="${esc(book)}" style="color:#B8431D">Book a call</a> at a time that suits you.`),
           cfg.siteUrl,
         ),

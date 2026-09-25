@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { organizationLd, faqLd, breadcrumbLd, serviceLd, personLd, blogPostingLd } from '../src/lib/schema';
+import { organizationLd, faqLd, breadcrumbLd, serviceLd, personLd, coachLd, blogPostingLd } from '../src/lib/schema';
 
 describe('schema builders', () => {
   it('organization omits placeholder socials from sameAs', () => {
@@ -31,6 +31,12 @@ describe('schema builders', () => {
     const p: any = personLd('https://aqfitness.ca/');
     expect(p['@type']).toBe('Person');
     expect(p.hasCredential.length).toBeGreaterThan(2);
+  });
+
+  it('coach without a last name uses the first name only', () => {
+    const c: any = coachLd('https://aqfitness.ca/', { id: 'vicky', firstName: 'Vicky', lastName: null, role: 'Coach' });
+    expect(c.name).toBe('Vicky');
+    expect(c.url).toBe('https://aqfitness.ca/about/#vicky');
   });
 
   it('blog posting uses ISO dates', () => {

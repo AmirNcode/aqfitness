@@ -3,34 +3,42 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CTASection from '../components/CTASection.astro';
-import { site, bookingHref } from '../config/site';
-import { personLd } from '../lib/schema';
-import portrait from '../assets/photos/alejandro-portrait.jpg';
+import Placeholder from '../components/Placeholder.astro';
+import { site } from '../config/site';
+import { personLd, coachLd } from '../lib/schema';
 import thenAndNow from '../assets/photos/alejandro-then-and-now.jpg';
 import gym from '../assets/photos/alejandro-gym.jpg';
+
+const [alejandro, vicky] = site.team;
 ---
 <BaseLayout
-  title="About Alejandro Rivas, founder of Aquam Fitness"
-  description="Alejandro Rivas is a Precision Nutrition certified coach and personal trainer in Toronto who has coached 200+ clients and 5,000+ group fitness classes."
+  title="Meet the Aquam Fitness coaches"
+  description="Meet the Aquam Fitness coaches: founder Alejandro Rivas, who has coached 200+ clients, and Vicky, who helps women build a healthy relationship with food."
   breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'About', path: '/about/' }]}
-  jsonLd={[personLd(Astro.site!.href)]}
+  jsonLd={[personLd(Astro.site!.href), coachLd(Astro.site!.href, vicky)]}
 >
-  <PageHero title="A nerd, a bodybuilder and a fat kid at heart" lead="Meet Alejandro Rivas, founder and head coach of Aquam Fitness.">
-    <Image slot="aside" src={portrait} alt="Alejandro Rivas standing in the gym" widths={[480, 960]} sizes="(max-width: 900px) 90vw, 480px" class="hero-photo" loading="eager" />
+  <PageHero title="Meet the team" lead="Two coaches, two different stories, one mission: to educate, empower and guide you to become the best version of yourself.">
+    <nav class="btn-row" aria-label="Coaches on this page">
+      <a class="btn btn-ghost" href="#alejandro">{alejandro.firstName} {alejandro.lastName}</a>
+      <a class="btn btn-ghost" href="#vicky">{vicky.firstName}</a>
+    </nav>
   </PageHero>
 
-  <section class="section">
+  <section class="section coach-section" id="alejandro">
     <div class="wrap story">
       <div class="prose">
-        <h2>Where it started</h2>
+        <p class="kicker">{alejandro.role}</p>
+        <h2 class="name">{alejandro.firstName} {alejandro.lastName}</h2>
+        <p class="tagline">A nerd, a bodybuilder and a fat kid at heart.</p>
+        <h3>Where it started</h3>
         <p>Alejandro hasn't always looked like the guy in the photos. He knows what it feels like to be overweight, to struggle to commit to a routine and a diet plan, and to start over again and again. He shares where he started because being there is what made him, and Aquam Fitness, who we are now.</p>
         <p>Back in 2014, when he started his own fitness journey, he saw some results, but the training and diet methods out there were extreme. It was "do as you are told," with little education and no room for real life. He knew there had to be a more empowering, sustainable way.</p>
-        <h2>Why Aquam Fitness exists</h2>
+        <h3>Why Aquam Fitness exists</h3>
         <p>Since starting Aquam Fitness in 2020, the mission has been the same: educate, empower and guide people to become the best version of themselves. That means a better relationship with food, getting stronger and feeling confident in your body, without restrictive or extreme diets.</p>
         <p>Having a body you're proud of isn't vanity. It's a sign of hard work, commitment and perseverance, and we believe everyone deserves it.</p>
-        <h2>Who we work with</h2>
+        <h3>Who we work with</h3>
         <p>Alejandro originally set out to coach professional athletes. Then he discovered how much he loved coaching busy moms over 30 to get stronger, leaner and more confident. Today Aquam Fitness coaches those women one-on-one, and brings the same approach to whole teams through <a href="/teams/">Habit Shift</a>, our team program.</p>
-        <h2>Off the clock</h2>
+        <h3>Off the clock</h3>
         <p>Soccer is his number one passion. He's a gamer and a huge anime fan, and the total opposite of a party guy. He's also pursuing his pro card as a bodybuilder.</p>
       </div>
       <figure class="collage">
@@ -58,6 +66,20 @@ import gym from '../assets/photos/alejandro-gym.jpg';
     </div>
   </section>
 
+  <section class="section coach-section" id="vicky">
+    <div class="wrap story vicky">
+      <div class="photo-ph"><Placeholder label="Vicky's photo (being edited)" /></div>
+      <div class="prose">
+        <p class="kicker">{vicky.role}</p>
+        <h2 class="name">{vicky.firstName} {vicky.lastName ?? <Placeholder label="last name" />}</h2>
+        <p>After struggling with an eating disorder from the time I was 14, I was able to come out of it through therapy and nutrition coaching. Because of the difference it made in my life, I knew I had to pay it forward and help other women like me understand that their relationship with food can be healthy, and they can still look and feel their best, whatever that may be.</p>
+        <p>I went through my nutrition and fitness journey when my boys were 7 and 9 and I was working full-time as a teacher, so I know the excuses women, especially mothers, make to stop themselves from doing something for themselves.</p>
+        <p>My mission is to help women understand that self-love is not selfish, and that they can live in a body they are proud of, while ensuring that they have the tools to stay healthy and live a longer, more fulfilling life without eating like a bird for breakfast, lunch and dinner.</p>
+        <p class="small muted">Certifications: <Placeholder label="Vicky's certifications" /></p>
+      </div>
+    </div>
+  </section>
+
   <CTASection
     heading="Let's work together."
     text="Whether it's your whole team or just you, it starts with a conversation."
@@ -68,10 +90,14 @@ import gym from '../assets/photos/alejandro-gym.jpg';
 </BaseLayout>
 
 <style>
-  .hero-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; filter: grayscale(1); }
+  .coach-section { scroll-margin-top: 72px; }
   .story { display: grid; grid-template-columns: 3fr 2fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
-  .prose h2 { font-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem); margin-top: 1.4em; }
-  .prose h2:first-child { margin-top: 0; }
+  .prose .kicker { font-weight: 600; color: var(--accent-ink); margin-bottom: 8px; }
+  .name { margin-bottom: 12px; }
+  .tagline { font-size: var(--fs-lead); }
+  .prose h3 { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); margin-top: 1.4em; }
+  .vicky { grid-template-columns: 2fr 3fr; }
+  .photo-ph { aspect-ratio: 4 / 5; display: grid; place-items: center; padding: 16px; text-align: center; background: var(--paper); border: 1.5px dashed var(--line); }
   .prose p { color: var(--text); }
   .collage { margin: 0; position: sticky; top: 96px; }
   .collage img { width: 100%; height: auto; }
@@ -84,7 +110,8 @@ import gym from '../assets/photos/alejandro-gym.jpg';
   .creds li + li { margin-top: 6px; }
   .creds p { color: rgb(255 255 255 / 0.85); }
   @media (max-width: 900px) {
-    .story, .creds { grid-template-columns: 1fr; }
+    .story, .vicky, .creds { grid-template-columns: 1fr; }
+    .photo-ph { max-width: 360px; }
     .collage { position: static; }
   }
 </style>
