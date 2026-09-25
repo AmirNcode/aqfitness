@@ -110,8 +110,8 @@ All 6 blog posts keep their old slugs, so `/blogs/news/:slug` maps 1:1.
 The blocks listed for each page come from the named sources. Items marked **[PH]** are placeholders until Alejandro supplies the real content.
 
 ### 5.1 Home `/`
-1. **Hero (professional):** "Competitive edge starts with your people." Subline (Alejandro's wording): "We are not just a wellness initiative. It's a business strategy." CTAs: **Book a discovery call** and "How it works ↓". A small link: "Looking for 1:1 coaching? →"
-2. **12-week strip:** the program's 12 weeks as one graphic (Foundation outlined, Momentum in orange), full width under the hero copy. *(Build note: this replaced the planned marquee. "Eat. Train. Live." now appears as large type in the footer, which keeps motion to a minimum.)*
+1. **Hero (professional):** "Competitive edge starts with your people." Subline: "Habit Shift isn't just a wellness initiative. It's a business strategy." CTAs: **Book a discovery call** and "How it works ↓". A small link: "Looking for 1:1 coaching? →"
+2. ~~**12-week strip**~~ *(Removed 2026-09-25 at the client's request, along with the `WeekStrip` component. It had replaced the planned marquee; "Eat. Train. Live." stays as large type in the footer.)*
 3. **The problem:** 3 verified stats with source links.
 4. **Three pillars:** Movement · Nutrition · Recovery (from the deck).
 5. **How the 12 weeks work:** a condensed timeline (Foundation 1–4, then Momentum 5–12), linking to `/teams/`.
@@ -145,7 +145,7 @@ Alejandro wants this page to stay big picture; he covers the details on the disc
 9. **CTA:** Book a discovery call, with a company-inquiry form as the alternative.
 
 ### 5.3 1:1 Coaching `/coaching/` (source: old About + FAQ)
-1. **Hero (friendly, text only, no photo):** Alejandro's subtitle, "1:1 coaching for women 35+ who want to feel stronger, leaner, and more confident…". CTA: **Book a free consult**.
+1. **Hero (friendly, text only, no photo):** Alejandro's subtitle, "1:1 coaching for women 30+ who want to feel stronger, leaner, and more confident…". CTA: **Book a free consult**.
 2. **Who it's for:** "Built for moms who put everyone else first", in Alejandro's words (women 30+, momma bears, "Ready to stop starting over?").
 3. **Two options:** *Online coaching* and *Nutrition coaching* share one list of what's included; online coaching adds the training plan and exercise video reviews. "Pricing shared on your free consult."
 4. **How it works:** a real sequence: free consult → your plan → weekly check-ins (not just weight: energy, sleep, stress, performance) → adjust using the check-in data, and keep going.
@@ -250,7 +250,6 @@ All components are `.astro`. JavaScript appears only where marked JS.
 | `Header` / `MobileMenu` (JS: toggle) | all | Sticky, compact on scroll (CSS only) |
 | `Footer` + `NewsletterForm` | all | Netlify form `newsletter` |
 | `Hero` (variants: performance, coaching, simple) | pages | Optional B&W photo with a gradient scrim |
-| `WeekStrip` (compact / full) | home, teams | The signature 12-week graphic |
 | `StatBlock` / `StatRow` | home, teams | Value, label, source link (required) |
 | `PillarCards` | home, teams | 3 up, stacking on mobile |
 | `Timeline12Week` | home (compact), teams (full) | Ordered list, phases, markers |
@@ -442,5 +441,10 @@ repo root
 - `/teams/` trimmed to the big picture (see §5.2). The Trainerize mention in the remote-teams FAQ became "a coaching app". `AppScreens` and the app screenshots were deleted.
 - Pilot results filled in from the pilot PDF; the case-study placeholders are gone.
 - `/coaching/`: hero photo removed; his copy for the hero, "Built for moms…", the two offers and How it works steps 3–4.
-- Open questions for Alejandro: the hero says 35+ while "Built for moms" says 30+; the pilot PDF footer says aquamfitness.com while the site assumes aqfitness.ca.
+- Resolved: the 1:1 audience is women **30+** everywhere, and the domain is **aqfitness.ca** (the pilot PDF's aquamfitness.com was wrong).
+
+**2026-09-25, follow-ups**
+- Home hero subline changed to "Habit Shift isn't just a wellness initiative. It's a business strategy." This fixes the grammar and puts the program name back on the home hero.
+- The 12-week strip was removed from the home hero. `WeekStrip` was deleted, and the teams share image no longer shows the week boxes.
+- Program snapshot: "12+ weeks minimum; programs can run 16, 20 weeks or longer."
 

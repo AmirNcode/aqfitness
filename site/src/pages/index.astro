@@ -3,7 +3,6 @@ import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import WeekStrip from '../components/WeekStrip.astro';
 import StatRow from '../components/StatRow.astro';
 import Pillars from '../components/Pillars.astro';
 import CaseStudy from '../components/CaseStudy.astro';
@@ -33,14 +32,13 @@ const galleryItems = results.filter((r) => !r.quote).slice(0, 8);
   <PageHero
     size="xl"
     title="Competitive edge starts with your people."
-    lead="We are not just a wellness initiative. It's a business strategy."
+    lead="Habit Shift isn't just a wellness initiative. It's a business strategy."
   >
     <div class="btn-row">
       <a class="btn btn-primary btn-lg" href={bookingHref('discovery')}>Book a discovery call</a>
       <a class="btn btn-ghost btn-lg" href="#how">How the 12 weeks work</a>
     </div>
     <p class="aside-link">Looking for coaching for yourself? <a href="/coaching/">See 1:1 online coaching</a>.</p>
-    <div class="hero-strip"><WeekStrip /></div>
   </PageHero>
 
   <section class="section dark">
@@ -151,7 +149,6 @@ const galleryItems = results.filter((r) => !r.quote).slice(0, 8);
 
 <style>
   .aside-link { margin-top: 20px; font-size: 1rem; }
-  .hero-strip { margin-top: clamp(40px, 6vw, 72px); max-width: 100%; }
   .narrow { max-width: 22ch; margin-bottom: 40px; }
   .intro { max-width: 720px; margin-bottom: 40px; }
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
