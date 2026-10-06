@@ -14,8 +14,9 @@ import CoachCard from '../components/CoachCard.astro';
 import { site, bookingHref } from '../config/site';
 import { serviceLd, faqLd } from '../lib/schema';
 import portrait from '../assets/photos/alejandro-portrait.jpg';
+import vickyPortrait from '../assets/photos/vicky-portrait.jpg';
 
-const photos: Record<string, ImageMetadata | undefined> = { alejandro: portrait };
+const photos: Record<string, ImageMetadata | undefined> = { alejandro: portrait, vicky: vickyPortrait };
 
 const faq = (await getCollection('faqCoaching')).map((e) => e.data).sort((a, b) => a.order - b.order);
 const results = await getResults();

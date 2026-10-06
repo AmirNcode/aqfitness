@@ -454,7 +454,8 @@ repo root
   - `/about/` is now "Meet the team": Alejandro's story, then his credentials, then Vicky's bio in her own words. The only edits to her bio are punctuation, plus "and I was working full-time".
   - `/coaching/` has a "Meet your coaches" section with two cards (`CoachCard`), linking to `/about/#alejandro` and `/about/#vicky`.
   - Coach data lives in `site.team`, and JSON-LD adds `coachLd` for Vicky.
-  - [PH] still missing: her photo (being edited) and her last name.
+  - Her last name is Mak-Tubbs (2026-10-06). It shows everywhere Alejandro's full name does: headings, coach card, about-page nav, meta description, JSON-LD and llms.txt.
+  - Photos (2026-10-06): /about/#vicky uses page 1 of her Canva design "Bitchky" (an 11-photo collage, 1080×1350), saved as `assets/photos/vicky-collage.jpg`. The /coaching/ card uses `assets/photos/vicky-portrait.jpg`, converted from the PNG she supplied.
   - Her certifications: Certified Personal Trainer and Precision Nutrition Certified Nutrition Coach. They are listed on /about/ and in `coachLd` as hasCredential.
 - Alejandro's portrait is back on /about/. It sits above the then-and-now collage on desktop and leads his section on mobile.
 - Coaching "How it works" step 1 now describes the consult as finding out where you're at, how you got here and your goals.

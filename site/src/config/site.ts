@@ -47,7 +47,7 @@ export const site = {
     {
       id: 'vicky',
       firstName: 'Vicky',
-      lastName: null as string | null,
+      lastName: 'Mak-Tubbs' as string | null,
       role: 'Coach',
       summary: 'Helps women see that self-love isn’t selfish, and that they can live in a body they’re proud of.',
       credentials: ['Certified Personal Trainer', 'Precision Nutrition Certified Nutrition Coach'],
