@@ -50,7 +50,10 @@ export function personLd(siteUrl: string) {
 }
 
 /** A coach other than the founder. Name and title only until their details are confirmed. */
-export function coachLd(siteUrl: string, coach: { id: string; firstName: string; lastName: string | null; role: string }) {
+export function coachLd(
+  siteUrl: string,
+  coach: { id: string; firstName: string; lastName: string | null; role: string; credentials?: readonly string[] },
+) {
   return {
     ...ctx,
     '@type': 'Person',
@@ -58,6 +61,9 @@ export function coachLd(siteUrl: string, coach: { id: string; firstName: string;
     jobTitle: coach.role,
     worksFor: organizationRef(siteUrl),
     url: abs(siteUrl, `/about/#${coach.id}`),
+    ...(coach.credentials?.length
+      ? { hasCredential: coach.credentials.map((name) => ({ '@type': 'EducationalOccupationalCredential', name })) }
+      : {}),
   };
 }
 

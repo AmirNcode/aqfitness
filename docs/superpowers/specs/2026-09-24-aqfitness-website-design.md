@@ -454,7 +454,16 @@ repo root
   - `/about/` is now "Meet the team": Alejandro's story, then his credentials, then Vicky's bio in her own words. The only edits to her bio are punctuation, plus "and I was working full-time".
   - `/coaching/` has a "Meet your coaches" section with two cards (`CoachCard`), linking to `/about/#alejandro` and `/about/#vicky`.
   - Coach data lives in `site.team`, and JSON-LD adds `coachLd` for Vicky.
-  - [PH] still missing: her photo (being edited), her last name and her certifications.
+  - [PH] still missing: her photo (being edited) and her last name.
+  - Her certifications: Certified Personal Trainer and Precision Nutrition Certified Nutrition Coach. They are listed on /about/ and in `coachLd` as hasCredential.
+- Alejandro's portrait is back on /about/. It sits above the then-and-now collage on desktop and leads his section on mobile.
 - Coaching "How it works" step 1 now describes the consult as finding out where you're at, how you got here and your goals.
 - "Alejandro will get back to you" became "We'll get back to you" on the contact thank-you page and in the confirmation emails. The footer link reads "About us".
+
+**2026-09-26, results photos**
+- Removed at Alejandro's request: result-22, 25, 26 and 27 (transformations #11, #14, #15 and #16 on the old results page).
+- Added result-30 to result-40 from his Canva design "Testimonials" (pages 5 and 11–20).
+  - Pages 11 and 12 are newer photos of the clients from result-25 and result-22.
+  - Pages 1–4 and 6–10 were already on the site. Page 3 is result-26, which was removed anyway because he tagged it.
+- New photos show first. The testimonials schema gained `order` (default 100), and `lib/results.ts#getResults()` sorts by order and then id for the home, coaching and results pages.
 

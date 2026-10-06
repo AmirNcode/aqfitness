@@ -1,5 +1,117 @@
-# Client results from the old site (testimonials page). Order matches the old page.
+# Client results. result-01..29 come from the old site's testimonials page (four were removed
+# at Alejandro's request, 2026-09-26); result-30..40 come from his Canva design "Testimonials"
+# (pages 5 and 11-20). Lower `order` shows first; items without one follow in id order.
 # firstName is a placeholder until Alejandro maps names to clients.
+
+- id: result-30
+  order: 4
+  firstName: null
+  quote: null
+  image: ../assets/results/result-30.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-31
+  order: 3
+  firstName: null
+  quote: null
+  image: ../assets/results/result-31.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-32
+  order: 1
+  firstName: null
+  quote: null
+  image: ../assets/results/result-32.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-33
+  order: 2
+  firstName: null
+  quote: null
+  image: ../assets/results/result-33.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-34
+  order: 5
+  firstName: null
+  quote: null
+  image: ../assets/results/result-34.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-35
+  order: 6
+  firstName: null
+  quote: null
+  image: ../assets/results/result-35.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-36
+  order: 7
+  firstName: null
+  quote: null
+  image: ../assets/results/result-36.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-37
+  order: 8
+  firstName: null
+  quote: null
+  image: ../assets/results/result-37.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-38
+  order: 9
+  firstName: null
+  quote: null
+  image: ../assets/results/result-38.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-39
+  order: 10
+  firstName: null
+  quote: null
+  image: ../assets/results/result-39.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
+
+- id: result-40
+  order: 11
+  firstName: null
+  quote: null
+  image: ../assets/results/result-40.jpg
+  videoUrl: null
+  side: coaching
+  featured: false
+  placeholder: false
 
 - id: result-01
   firstName: null
@@ -190,15 +302,6 @@
   featured: false
   placeholder: false
 
-- id: result-22
-  firstName: null
-  quote: null
-  image: ../assets/results/result-22.jpg
-  videoUrl: null
-  side: coaching
-  featured: false
-  placeholder: false
-
 - id: result-23
   firstName: null
   quote: null
@@ -212,33 +315,6 @@
   firstName: null
   quote: null
   image: ../assets/results/result-24.jpg
-  videoUrl: null
-  side: coaching
-  featured: false
-  placeholder: false
-
-- id: result-25
-  firstName: null
-  quote: null
-  image: ../assets/results/result-25.jpg
-  videoUrl: null
-  side: coaching
-  featured: false
-  placeholder: false
-
-- id: result-26
-  firstName: null
-  quote: null
-  image: ../assets/results/result-26.jpg
-  videoUrl: null
-  side: coaching
-  featured: false
-  placeholder: false
-
-- id: result-27
-  firstName: null
-  quote: null
-  image: ../assets/results/result-27.jpg
   videoUrl: null
   side: coaching
   featured: false

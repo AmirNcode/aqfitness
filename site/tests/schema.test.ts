@@ -37,6 +37,12 @@ describe('schema builders', () => {
     const c: any = coachLd('https://aqfitness.ca/', { id: 'vicky', firstName: 'Vicky', lastName: null, role: 'Coach' });
     expect(c.name).toBe('Vicky');
     expect(c.url).toBe('https://aqfitness.ca/about/#vicky');
+    expect(c.hasCredential).toBeUndefined();
+  });
+
+  it('coach credentials become hasCredential', () => {
+    const c: any = coachLd('https://aqfitness.ca/', { id: 'vicky', firstName: 'Vicky', lastName: null, role: 'Coach', credentials: ['Certified Personal Trainer'] });
+    expect(c.hasCredential).toEqual([{ '@type': 'EducationalOccupationalCredential', name: 'Certified Personal Trainer' }]);
   });
 
   it('blog posting uses ISO dates', () => {

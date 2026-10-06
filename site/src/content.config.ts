@@ -26,6 +26,7 @@ const testimonials = defineCollection({
       side: z.enum(['coaching', 'performance']),
       featured: z.boolean().default(false),
       placeholder: z.boolean().default(false),
+      order: z.number().default(100),
     }),
 });
 

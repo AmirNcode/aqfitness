@@ -2,6 +2,7 @@
 import type { ImageMetadata } from 'astro';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getResults } from '../lib/results';
 import PageHero from '../components/PageHero.astro';
 import Offer from '../components/Offer.astro';
 import Steps from '../components/Steps.astro';
@@ -17,7 +18,7 @@ import portrait from '../assets/photos/alejandro-portrait.jpg';
 const photos: Record<string, ImageMetadata | undefined> = { alejandro: portrait };
 
 const faq = (await getCollection('faqCoaching')).map((e) => e.data).sort((a, b) => a.order - b.order);
-const results = (await getCollection('testimonials')).map((e) => e.data);
+const results = await getResults();
 const quotes = results.filter((r) => r.quote).slice(0, 3);
 const gallery = results.filter((r) => !r.quote).slice(8, 16);
 

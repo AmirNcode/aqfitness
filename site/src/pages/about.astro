@@ -6,6 +6,7 @@ import CTASection from '../components/CTASection.astro';
 import Placeholder from '../components/Placeholder.astro';
 import { site } from '../config/site';
 import { personLd, coachLd } from '../lib/schema';
+import portrait from '../assets/photos/alejandro-portrait.jpg';
 import thenAndNow from '../assets/photos/alejandro-then-and-now.jpg';
 import gym from '../assets/photos/alejandro-gym.jpg';
 
@@ -25,7 +26,7 @@ const [alejandro, vicky] = site.team;
   </PageHero>
 
   <section class="section coach-section" id="alejandro">
-    <div class="wrap story">
+    <div class="wrap ale">
       <div class="prose">
         <p class="kicker">{alejandro.role}</p>
         <h2 class="name">{alejandro.firstName} {alejandro.lastName}</h2>
@@ -41,6 +42,7 @@ const [alejandro, vicky] = site.team;
         <h3>Off the clock</h3>
         <p>Soccer is his number one passion. He's a gamer and a huge anime fan, and the total opposite of a party guy. He's also pursuing his pro card as a bodybuilder.</p>
       </div>
+      <Image src={portrait} alt="Alejandro Rivas standing in the gym" widths={[480, 960]} sizes="(max-width: 900px) 90vw, 440px" class="portrait" />
       <figure class="collage">
         <Image src={thenAndNow} alt="Photo collage of Alejandro over the years, from before his fitness journey to today" widths={[480, 960]} sizes="(max-width: 900px) 90vw, 440px" />
         <figcaption class="small muted">Then and now.</figcaption>
@@ -75,7 +77,8 @@ const [alejandro, vicky] = site.team;
         <p>After struggling with an eating disorder from the time I was 14, I was able to come out of it through therapy and nutrition coaching. Because of the difference it made in my life, I knew I had to pay it forward and help other women like me understand that their relationship with food can be healthy, and they can still look and feel their best, whatever that may be.</p>
         <p>I went through my nutrition and fitness journey when my boys were 7 and 9 and I was working full-time as a teacher, so I know the excuses women, especially mothers, make to stop themselves from doing something for themselves.</p>
         <p>My mission is to help women understand that self-love is not selfish, and that they can live in a body they are proud of, while ensuring that they have the tools to stay healthy and live a longer, more fulfilling life without eating like a bird for breakfast, lunch and dinner.</p>
-        <p class="small muted">Certifications: <Placeholder label="Vicky's certifications" /></p>
+        <h3>Education and certifications</h3>
+        <ul class="certs">{vicky.credentials.map((c) => <li>{c}</li>)}</ul>
       </div>
     </div>
   </section>
@@ -98,8 +101,13 @@ const [alejandro, vicky] = site.team;
   .prose h3 { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); margin-top: 1.4em; }
   .vicky { grid-template-columns: 2fr 3fr; }
   .photo-ph { aspect-ratio: 4 / 5; display: grid; place-items: center; padding: 16px; text-align: center; background: var(--paper); border: 1.5px dashed var(--line); }
-  .prose p { color: var(--text); }
-  .collage { margin: 0; position: sticky; top: 96px; }
+  .prose p, .certs { color: var(--text); }
+  .certs li + li { margin-top: 6px; }
+  /* Alejandro: text on the left, portrait then collage on the right. On mobile the portrait leads, like Vicky's photo. */
+  .ale { display: grid; grid-template-columns: 3fr 2fr; grid-template-areas: "prose portrait" "prose collage"; grid-template-rows: auto 1fr; column-gap: clamp(32px, 5vw, 72px); row-gap: 24px; align-items: start; }
+  .ale .prose { grid-area: prose; }
+  .portrait { grid-area: portrait; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+  .collage { grid-area: collage; margin: 0; }
   .collage img { width: 100%; height: auto; }
   .collage figcaption { margin-top: 8px; }
   .creds { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); }
@@ -111,7 +119,7 @@ const [alejandro, vicky] = site.team;
   .creds p { color: rgb(255 255 255 / 0.85); }
   @media (max-width: 900px) {
     .story, .vicky, .creds { grid-template-columns: 1fr; }
-    .photo-ph { max-width: 360px; }
-    .collage { position: static; }
+    .ale { grid-template-columns: 1fr; grid-template-areas: "portrait" "prose" "collage"; }
+    .photo-ph, .portrait { max-width: 360px; }
   }
 </style>

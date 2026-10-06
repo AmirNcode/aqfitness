@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getResults } from '../lib/results';
 import PageHero from '../components/PageHero.astro';
 import StatRow from '../components/StatRow.astro';
 import Pillars from '../components/Pillars.astro';
@@ -16,7 +17,7 @@ import friendly from '../assets/photos/alejandro-friendly.jpg';
 import gym from '../assets/photos/alejandro-gym.jpg';
 
 const stats = (await getCollection('stats')).map((e) => e.data).sort((a, b) => a.order - b.order);
-const results = (await getCollection('testimonials')).map((e) => e.data);
+const results = await getResults();
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);

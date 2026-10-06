@@ -1,6 +1,6 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getResults } from '../lib/results';
 import PageHero from '../components/PageHero.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import TransformationGallery from '../components/TransformationGallery.astro';
@@ -8,7 +8,7 @@ import CTASection from '../components/CTASection.astro';
 import { bookingHref } from '../config/site';
 import portrait from '../assets/photos/alejandro-portrait.jpg';
 
-const results = (await getCollection('testimonials')).map((e) => e.data);
+const results = await getResults();
 const quotes = results.filter((r) => r.quote);
 const photos = results.filter((r) => !r.quote);
 ---
