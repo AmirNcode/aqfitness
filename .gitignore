@@ -2,6 +2,7 @@
 /material/
 /planning/
 /old-site/
+/handoff/
 # build / deps
 node_modules/
 site/dist/
