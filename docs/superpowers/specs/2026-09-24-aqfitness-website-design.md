@@ -468,3 +468,8 @@ repo root
   - Pages 1–4 and 6–10 were already on the site. Page 3 is result-26, which was removed anyway because he tagged it.
 - New photos show first. The testimonials schema gained `order` (default 100), and `lib/results.ts#getResults()` sorts by order and then id for the home, coaching and results pages.
 
+
+**2026-10-06, results page order**
+- Removed result-01 (and its quote) at Alejandro's request. The home page's featured testimonial is now result-02.
+- New "Latest transformations" section at the top of /results/: result-32, 33, 31, 30 and 34, his newest clients, marked `latest: true`. Five across on desktop, a sideways-swipe strip below 900px. They no longer repeat in "More transformations".
+- The testimonials heading "In their words" is now visible, so the page reads Latest → In their words → More transformations.

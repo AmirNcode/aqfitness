@@ -8,20 +8,27 @@ interface Item {
 }
 interface Props {
   items: Item[];
-  layout?: 'row' | 'grid';
+  /** row: sideways scroll. grid: wraps. latest: one row of five, sideways scroll below 900px. */
+  layout?: 'row' | 'grid' | 'latest';
   label?: string;
+  altLabel?: string;
 }
-const { items, layout = 'grid', label = 'Client transformations' } = Astro.props;
+const { items, layout = 'grid', label = 'Client transformations', altLabel = 'Client transformation' } = Astro.props;
+const sizes = {
+  row: '(max-width: 700px) 70vw, 300px',
+  grid: '(max-width: 700px) 50vw, (max-width: 1100px) 33vw, 300px',
+  latest: '(max-width: 900px) 70vw, 240px',
+}[layout];
 ---
-<div class:list={['gallery', layout]} tabindex={layout === 'row' ? 0 : undefined} role="region" aria-label={label}>
+<div class:list={['gallery', layout]} tabindex={layout === 'grid' ? undefined : 0} role="region" aria-label={label}>
   <ul>
     {items.map((it, i) => (
       <li>
         <Image
           src={it.image}
-          alt={`Client transformation ${i + 1}: before and after`}
+          alt={`${altLabel} ${i + 1}: before and after`}
           widths={[300, 600]}
-          sizes={layout === 'row' ? '(max-width: 700px) 70vw, 300px' : '(max-width: 700px) 50vw, (max-width: 1100px) 33vw, 300px'}
+          sizes={sizes}
         />
       </li>
     ))}
@@ -35,4 +42,10 @@ const { items, layout = 'grid', label = 'Client transformations' } = Astro.props
   .row { overflow-x: auto; padding-bottom: 12px; }
   .row ul { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 300px); gap: 16px; scroll-snap-type: x mandatory; }
   .row li { scroll-snap-align: start; }
+  .latest ul { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  @media (max-width: 900px) {
+    .latest { overflow-x: auto; padding-bottom: 12px; }
+    .latest ul { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(220px, 70vw); scroll-snap-type: x mandatory; }
+    .latest li { scroll-snap-align: start; }
+  }
 </style>

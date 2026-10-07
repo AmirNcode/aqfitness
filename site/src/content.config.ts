@@ -25,6 +25,7 @@ const testimonials = defineCollection({
       videoUrl: z.url().nullable(),
       side: z.enum(['coaching', 'performance']),
       featured: z.boolean().default(false),
+      latest: z.boolean().default(false),
       placeholder: z.boolean().default(false),
       order: z.number().default(100),
     }),

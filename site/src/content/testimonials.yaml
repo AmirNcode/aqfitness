@@ -1,9 +1,12 @@
 # Client results. result-01..29 come from the old site's testimonials page (four were removed
 # at Alejandro's request, 2026-09-26); result-30..40 come from his Canva design "Testimonials"
 # (pages 5 and 11-20). Lower `order` shows first; items without one follow in id order.
+# result-01 was removed 2026-10-06 at Alejandro's request. `latest: true` marks his newest
+# clients, shown in their own section at the top of /results/.
 # firstName is a placeholder until Alejandro maps names to clients.
 
 - id: result-30
+  latest: true
   order: 4
   firstName: null
   quote: null
@@ -14,6 +17,7 @@
   placeholder: false
 
 - id: result-31
+  latest: true
   order: 3
   firstName: null
   quote: null
@@ -24,6 +28,7 @@
   placeholder: false
 
 - id: result-32
+  latest: true
   order: 1
   firstName: null
   quote: null
@@ -34,6 +39,7 @@
   placeholder: false
 
 - id: result-33
+  latest: true
   order: 2
   firstName: null
   quote: null
@@ -44,6 +50,7 @@
   placeholder: false
 
 - id: result-34
+  latest: true
   order: 5
   firstName: null
   quote: null
@@ -112,15 +119,6 @@
   side: coaching
   featured: false
   placeholder: false
-
-- id: result-01
-  firstName: null
-  quote: "For my entire life, before I started working with Aquam Fitness, I had been struggling with my diet and my body image. Working with them helped me understand the importance of eating, creating habits and best yet, how to gain weight (and muscle) appropriately and become toned. I am now the most confident and strongest I\u2019ve ever been."
-  image: ../assets/results/result-01.jpg
-  videoUrl: "https://www.instagram.com/reel/C1-yYMiNMhc/"
-  side: coaching
-  featured: true
-  placeholder: true
 
 - id: result-02
   firstName: null

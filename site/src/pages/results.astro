@@ -10,7 +10,8 @@ import portrait from '../assets/photos/alejandro-portrait.jpg';
 
 const results = await getResults();
 const quotes = results.filter((r) => r.quote);
-const photos = results.filter((r) => !r.quote);
+const latest = results.filter((r) => r.latest);
+const photos = results.filter((r) => !r.quote && !r.latest);
 ---
 <BaseLayout
   title="Client results and testimonials"
@@ -24,9 +25,21 @@ const photos = results.filter((r) => !r.quote);
     lead="Weight lost, strength gained and, more often than not, a better relationship with food. These are real clients who stayed consistent and made it a lifestyle."
   />
 
+  <section class="section latest-section">
+    <div class="wrap">
+      <div class="intro">
+        <h2>Latest transformations</h2>
+        <p class="lead">Our newest clients and their most recent results.</p>
+      </div>
+      <TransformationGallery items={latest} layout="latest" label="Latest client transformation photos" altLabel="Latest client transformation" />
+    </div>
+  </section>
+
   <section class="section">
     <div class="wrap">
-      <h2 class="sr-only">In their words</h2>
+      <div class="intro">
+        <h2>In their words</h2>
+      </div>
       <div class="quotes">
         {quotes.map((q) => (
           <TestimonialCard quote={q.quote!} firstName={q.firstName} placeholder={q.placeholder} image={q.image} videoUrl={q.videoUrl} />
@@ -56,6 +69,8 @@ const photos = results.filter((r) => !r.quote);
 
 <style>
   .intro { margin-bottom: 32px; }
+  .intro .lead { margin: 8px 0 0; }
+  .latest-section { padding-bottom: 0; }
   .quotes { columns: 3 300px; column-gap: 20px; }
   .quotes > :global(*) { break-inside: avoid; margin-bottom: 20px; background: var(--sand); }
   .note { margin-top: 28px; color: var(--slate); }
