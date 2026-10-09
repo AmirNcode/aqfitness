@@ -15,7 +15,7 @@ export const site = {
   social: {
     instagram: 'https://www.instagram.com/vangaless/',
     linkedin: null as string | null,
-    googleBusiness: null as string | null,
+    googleBusiness: 'https://maps.app.goo.gl/anvTQYKMHxaisEVU8',
   },
   calendly: {
     consult: null as string | null,

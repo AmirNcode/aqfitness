@@ -6,7 +6,7 @@
 - id: online
   order: 2
   question: Is coaching online?
-  answer: Yes. Coaching happens online through the Trainerize app, so you can work with us from anywhere in Canada, with check-ins, your training plan and nutrition guidance all in one place.
+  answer: Yes. Coaching happens online through the Trainerize app, so you can work with us from anywhere in Canada, with check-ins, your training plan and nutrition guidance all in one place. In-person training can also be arranged for an additional cost.
   confirm: true
 - id: restrictive
   order: 3

@@ -31,7 +31,7 @@ const photos = results.filter((r) => !r.quote);
       </div>
       <div class="quotes">
         {quotes.map((q) => (
-          <TestimonialCard quote={q.quote!} firstName={q.firstName} placeholder={q.placeholder} image={q.image} videoUrl={q.videoUrl} />
+          <TestimonialCard quote={q.quote!} firstName={q.firstName} placeholder={q.placeholder} image={q.image} preserveImageAspectRatio={q.id === 'result-07'} videoUrl={q.videoUrl} />
         ))}
       </div>
     </div>

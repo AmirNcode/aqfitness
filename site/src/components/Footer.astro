@@ -30,6 +30,7 @@ const year = new Date().getFullYear();
           <li><a href="/contact/">Send a message</a></li>
           <li>{site.email ? <a href={`mailto:${site.email}`}>{site.email}</a> : <Placeholder label="business email" />}</li>
           <li><a href={site.social.instagram} rel="me">Instagram</a></li>
+          <li><a href={site.social.googleBusiness} rel="me">Google reviews</a></li>
           {site.social.linkedin && <li><a href={site.social.linkedin} rel="me">LinkedIn</a></li>}
         </ul>
         <p class="small muted">In person across the {site.serviceArea.inPerson}. Online everywhere in {site.serviceArea.virtual}.</p>

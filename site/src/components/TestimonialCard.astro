@@ -8,12 +8,13 @@ interface Props {
   firstName: string | null;
   placeholder?: boolean;
   image?: ImageMetadata;
+  preserveImageAspectRatio?: boolean;
   videoUrl?: string | null;
 }
-const { quote, firstName, placeholder = false, image, videoUrl } = Astro.props;
+const { quote, firstName, placeholder = false, image, preserveImageAspectRatio = false, videoUrl } = Astro.props;
 ---
 <figure class="t">
-  {image && <Image class="photo" src={image} alt="Client before and after photos" widths={[320, 640]} sizes="(max-width: 700px) 90vw, 320px" />}
+  {image && <Image class="photo" style={preserveImageAspectRatio ? 'aspect-ratio: auto; height: auto;' : undefined} src={image} alt="Client before and after photos" widths={[320, 640]} sizes="(max-width: 700px) 90vw, 320px" />}
   <blockquote><p>{quote}</p></blockquote>
   <figcaption>
     {firstName ? <span class="name">{firstName}</span> : placeholder ? <Placeholder label="client first name" /> : <span class="name">Aquam Fitness client</span>}
