@@ -19,7 +19,7 @@ export const site = {
   },
   calendly: {
     consult: 'https://calendly.com/alejandrorivas/consultation',
-    discovery: null as string | null,
+    discovery: 'https://calendly.com/alejandrorivas/consultation',
   },
   nav: [
     { label: 'For Teams', href: '/teams/' },
