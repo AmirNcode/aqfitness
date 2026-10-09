@@ -25,7 +25,7 @@ const { quote, firstName, placeholder = false, image, videoUrl } = Astro.props;
   .t { margin: 0; display: grid; gap: 16px; align-content: start; background: var(--white); border-radius: var(--radius); padding: 20px; }
   .photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: calc(var(--radius) * 0.6); }
   blockquote { margin: 0; }
-  blockquote p { font-size: 1.125rem; line-height: 1.5; margin: 0; }
+  blockquote p { font-size: 1.125rem; line-height: 1.5; margin: 0; white-space: pre-line; }
   figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: var(--fs-small); }
   .name { font-weight: 600; }
 </style>

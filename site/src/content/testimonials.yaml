@@ -1,15 +1,17 @@
 # Client results. result-01..29 come from the old site's testimonials page (four were removed
 # at Alejandro's request, 2026-09-26); result-30..40 come from his Canva design "Testimonials"
 # (pages 5 and 11-20). Lower `order` shows first; items without one follow in id order.
-# result-01 was removed 2026-10-06 at Alejandro's request. `latest: true` marks his newest
-# clients, shown in their own section at the top of /results/.
-# firstName is a placeholder until Alejandro maps names to clients.
+# result-01 was removed 2026-10-06 at Alejandro's request.
+# Named clients with quotes appear first in "In their words" on /results/.
+# Unnamed testimonials use the generic client attribution without a placeholder tag.
 
 - id: result-30
-  latest: true
   order: 4
-  firstName: null
-  quote: null
+  firstName: Francisco
+  quote: |-
+    Francisco came to us because he wasn’t happy with how he felt, how he looked, or how he was performing on the field.
+    Fast forward 3 months and the transformation goes far beyond the number on the scale.
+    He lost weight, got stronger, started playing soccer pain-free again, and no longer felt like he needed an entire week to recover after every game. But what we’re most proud of isn’t the physical progress. Francisco stopped avoiding the things that were holding him back and chose to confront them head-on.
   image: ../assets/results/result-30.jpg
   videoUrl: null
   side: coaching
@@ -17,10 +19,11 @@
   placeholder: false
 
 - id: result-31
-  latest: true
   order: 3
-  firstName: null
-  quote: null
+  firstName: Janique
+  quote: |-
+    Janique is a machine! People talk about being busy, working long hours, demanding jobs and use that as an excuse to not take care of themselves.
+    As a paramedic, Janique works 12-hour shifts. She works from 7 a.m. to 7 p.m.? No problem, she is at the gym at 5:30 a.m. Work from 7 p.m. to 7 a.m.? She is at the gym at 4:30 p.m. No matter her schedule, she will make it work. Fast forward a year working together and she has lost 15lb, due to her demanding schedule and job, she has become a meal prep ninja. Lifting heavier than ever, gotten multiple PRs in endurance events and the list goes on and on.
   image: ../assets/results/result-31.jpg
   videoUrl: null
   side: coaching
@@ -28,10 +31,10 @@
   placeholder: false
 
 - id: result-32
-  latest: true
   order: 1
-  firstName: null
-  quote: null
+  firstName: Tameila
+  quote: |-
+    Tameila works 12-hour shifts as a UPS courier. On her feet all day, driving, lifting, delivering. She didn’t come into this chasing a number on the scale. She came in trying to build habits that could actually survive her schedule. In her own words, better sleep, more energy, more endurance, definitely stronger. Weight loss? 40lb down in 6 months. This was never a diet. It’s a performance system and the results follow when the habits are real.
   image: ../assets/results/result-32.jpg
   videoUrl: null
   side: coaching
@@ -39,21 +42,26 @@
   placeholder: false
 
 - id: result-33
-  latest: true
   order: 2
-  firstName: null
-  quote: null
+  firstName: Annie
+  quote: |-
+    After being retired, and over 60, Annie decided that she was not going to settle for less. She made the commitment to finally put herself first and join our team. Fast forward a year later, she lost: 35lb while traveling 4 times, was able to run without her puffer, lost inches of her waist and has gotten much stronger at the gym. Want to hear her story? Here it is:
   image: ../assets/results/result-33.jpg
-  videoUrl: null
+  videoUrl: "https://www.instagram.com/reel/DdXbaXARK3d/?utm_source=ig_web_copy_link&obrf=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA=="
   side: coaching
   featured: false
   placeholder: false
 
 - id: result-34
-  latest: true
   order: 5
-  firstName: null
-  quote: null
+  firstName: Alisa
+  quote: |-
+    To see the way Alisa has transformed has been awesome to witness. She had been struggling with her weight since she had her youngest kid, had some health complications last year, and one of her biggest frustrations was not being able to keep up with her family on vacation due to problems with her gait, which made walking difficult for her. She was frustrated that she had tried many things and nothing had worked for her. Fast forward 4.5 months, and Alisa has:
+    ✅ Lost +10lb
+    ✅ Created a new habit to work out before work (who are you anymore?)
+    ✅ Became a meal prep ninja
+    ✅ Feeling better about her relationship with food
+    ✅ Went to Vegas and walked an average of 20k steps DAILY!!!!
   image: ../assets/results/result-34.jpg
   videoUrl: null
   side: coaching
@@ -121,22 +129,22 @@
   placeholder: false
 
 - id: result-02
-  firstName: null
+  firstName: Julie
   quote: "I have tried every diet known to humankind and it was always the same approach, eat like a rabbit and starve yourself, which would \u201cwork\u201d for a short period of time. Working with the AQ team was when I realized I did not have to starve and that I could make this my lifestyle instead. I can enjoy treats, food and still make progress."
   image: ../assets/results/result-02.jpg
   videoUrl: "https://www.instagram.com/reel/Cw5DX1Fgd29/"
   side: coaching
   featured: true
-  placeholder: true
+  placeholder: false
 
 - id: result-03
-  firstName: null
+  firstName: Michele
   quote: "I am 60 and I feel and weigh the same as when I was in my 20s."
   image: ../assets/results/result-03.jpg
   videoUrl: "https://www.instagram.com/reel/DElf3DftyXr/"
   side: coaching
   featured: false
-  placeholder: true
+  placeholder: false
 
 - id: result-04
   firstName: null
@@ -148,22 +156,22 @@
   placeholder: false
 
 - id: result-05
-  firstName: null
+  firstName: Jessica
   quote: "My biggest win during this program has been the fact that I have learned so much about food, the importance of protein and the importance of moving during the day. Working from home makes moving challenging, but after starting this program those little movement breaks paired with good nutrition, have made a huge difference in my performance both in the gym and at work."
   image: ../assets/results/result-05.jpg
   videoUrl: "https://www.instagram.com/reel/DE6DmZKtkrj/"
   side: coaching
   featured: false
-  placeholder: true
+  placeholder: false
 
 - id: result-06
-  firstName: null
+  firstName: Eleni
   quote: "Feeling proud of how far I\u2019ve come on this fitness journey. It\u2019s been all about consistency, pushing through the tough days, and trusting the process. Grateful for where I am today and excited for what\u2019s next! Keep showing up, the results are worth it."
   image: ../assets/results/result-06.jpg
   videoUrl: "https://www.instagram.com/reel/C2OH3rPpwP5/"
   side: coaching
   featured: false
-  placeholder: true
+  placeholder: false
 
 - id: result-07
   firstName: null
@@ -172,7 +180,7 @@
   videoUrl: null
   side: coaching
   featured: false
-  placeholder: true
+  placeholder: false
 
 - id: result-08
   firstName: null
@@ -190,7 +198,7 @@
   videoUrl: null
   side: coaching
   featured: false
-  placeholder: true
+  placeholder: false
 
 - id: result-10
   firstName: null
@@ -199,7 +207,7 @@
   videoUrl: null
   side: coaching
   featured: false
-  placeholder: true
+  placeholder: false
 
 - id: result-11
   firstName: null
@@ -208,7 +216,7 @@
   videoUrl: null
   side: coaching
   featured: false
-  placeholder: true
+  placeholder: false
 
 - id: result-12
   firstName: null
@@ -226,7 +234,7 @@
   videoUrl: null
   side: coaching
   featured: true
-  placeholder: true
+  placeholder: false
 
 - id: result-14
   firstName: null
@@ -244,7 +252,7 @@
   videoUrl: null
   side: coaching
   featured: false
-  placeholder: true
+  placeholder: false
 
 - id: result-16
   firstName: null
