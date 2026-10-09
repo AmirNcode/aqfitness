@@ -1,43 +1,12 @@
-# Astro Starter Kit: Minimal
+# Aquam Fitness website
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Run commands from `site/`: `npm run check`, `npm test`, `npm run build`, and `npm run links`.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Forms and email
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Contact requests use Netlify Forms. Contact-only submission notifications are configured in Netlify to go to `alejandrorivasvanga@gmail.com`.
+- Newsletter and free-guide signups use the same HubSpot form: portal `342144230`, region `na3`, form `17bd968e-fe05-408c-8a3f-f7b01e7739ac`.
+- `HubSpotForm.astro` contains the shared embed. `BaseLayout.astro` loads the HubSpot script once per page. The guide page has both a main signup and a footer signup.
+- Manage form fields, consent, styling, success messages, and the follow-up email in HubSpot. Configure the follow-up email with the actual guide download link; embedding the form does not configure email delivery.
+- Allow the website domain in HubSpot's form settings if required. Verify a real signup and guide-email delivery after deployment.
+- Resend is no longer used. The old submission-triggered function has been removed so contact submissions do not also trigger Resend emails. Old Resend environment variables can be removed from hosting settings.

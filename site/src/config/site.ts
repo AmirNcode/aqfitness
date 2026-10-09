@@ -7,7 +7,7 @@ export const site = {
   founder: 'Alejandro Rivas',
   description:
     'Aquam Fitness helps companies build high-performing teams with a 12-week fitness and nutrition program, and coaches busy women over 30 one-on-one online.',
-  email: null as string | null,
+  email: 'info@aqfitness.ca',
   serviceArea: {
     inPerson: 'Greater Toronto Area',
     virtual: 'Canada',
@@ -18,7 +18,7 @@ export const site = {
     googleBusiness: 'https://maps.app.goo.gl/anvTQYKMHxaisEVU8',
   },
   calendly: {
-    consult: null as string | null,
+    consult: 'https://calendly.com/alejandrorivas/consultation',
     discovery: null as string | null,
   },
   nav: [
